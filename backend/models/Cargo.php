@@ -5,21 +5,21 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "departamento".
+ * This is the model class for table "cargo".
  *
  * @property integer $id
- * @property string $nombre_departamento
+ * @property string $nombre_cargo
  *
- * @property Municipio[] $municipios
+ * @property Empleado[] $empleados
  */
-class Departamento extends \yii\db\ActiveRecord
+class Cargo extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'departamento';
+        return 'cargo';
     }
 
     /**
@@ -28,7 +28,7 @@ class Departamento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_departamento'], 'string', 'max' => 25]
+            [['nombre_cargo'], 'string', 'max' => 45]
         ];
     }
 
@@ -39,15 +39,15 @@ class Departamento extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nombre_departamento' => 'Nombre Departamento',
+            'nombre_cargo' => 'Nombre Cargo',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getMunicipios()
+    public function getEmpleados()
     {
-        return $this->hasMany(Municipio::className(), ['departamento_id' => 'id']);
+        return $this->hasMany(Empleado::className(), ['cargo_id' => 'id']);
     }
 }
