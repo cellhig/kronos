@@ -332,6 +332,13 @@ class User extends ActiveRecord implements IdentityInterface
         return Html::a($this->perfil ? 'perfil' : 'ninguno', $url, $opciones);
     }
 
+     public function getProfileLink()
+    {
+        $url = Url::to(['perfil/view', 'id'=>$this->perfilId]);
+        $opciones = [];
+        return Html::a($this->perfil ? 'perfil' : 'ninguno', $url, $opciones);
+    }
+
         /**
      * get user id Link
      *
@@ -342,6 +349,8 @@ class User extends ActiveRecord implements IdentityInterface
             $opciones = [];
             return Html::a($this->id, $url, $opciones);
         }
+
+    
     /**
      * @getUserLink
      *
