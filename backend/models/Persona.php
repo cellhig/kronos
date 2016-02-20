@@ -75,7 +75,7 @@ class Persona extends \yii\db\ActiveRecord
      */
     public function getEmpleados()
     {
-        return $this->hasMany(Empleado::className(), ['persona_id' => 'id']);
+        return $this->hasOne(Empleado::className(), ['persona_id' => 'id']);
     }
 
     /**
