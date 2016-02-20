@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Empleado;
+use backend\models\Persona;
 use backend\models\EmpleadoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -61,12 +62,34 @@ class EmpleadoController extends Controller
     public function actionCreate()
     {
         $model = new Empleado();
+        $persona = new Persona();//objeto del modelo persona
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
+
+            $persona->nombre = $persona->nombre;
+            $persona->apellido = $persona->apellido;
+            $persona->identificacion = $persona->identificacion;
+            $persona->tipo_identificacion_id = $persona->tipo_identificacion_id;
+            $persona->municipio_id = $persona->municipio_id;
+            $persona->direccion = $persona->direccion;
+            $persona->telefono = $persona->telefono;
+
+            $persona->save();
+
+
+            $model->telefono_movil = $model->telefono_movil;
+            $model->estado = $model->estado;
+            $model->persona_id = $persona->id;
+            $model->cargo_id = $model->cargo_id;
+            $model->sede_id= $model->sede_id;
+            $model->save();
+
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'persona' => $persona,//uso el objeto persona aqui para poder guaradar los datos en la BD
             ]);
         }
     }
