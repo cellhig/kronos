@@ -54,11 +54,11 @@ class Persona extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
             'apellido' => 'Apellido',
-            'identificacion' => 'Identificacion',
-            'direccion' => 'Direccion',
-            'telefono' => 'Telefono',
-            'municipio_id' => 'Municipio ID',
-            'tipo_identificacion_id' => 'Tipo Identificacion ID',
+            'identificacion' => 'Identificación',
+            'direccion' => 'Dirección',
+            'telefono' => 'Teléfono',
+            'municipio_id' => 'Municipio de Residencia',
+            'tipo_identificacion_id' => 'Tipo Identificación',
         ];
     }
 

@@ -82,10 +82,12 @@ class EmpleadoController extends Controller
             $model->persona_id = $persona->id;
             $model->cargo_id = $model->cargo_id;
             $model->sede_id= $model->sede_id;
+
             $model->save();
 
 
             return $this->redirect(['view', 'id' => $model->id]);
+            
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -136,6 +138,8 @@ class EmpleadoController extends Controller
      */
     public function actionDelete($id)
     {
+        $persona = Persona::findOne($id);//ojo aqui(no esta implementado)
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

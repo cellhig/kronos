@@ -48,11 +48,11 @@ class Empleado extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'telefono_movil' => 'Telefono Movil',
+            'telefono_movil' => 'Teléfono Móvil',
             'estado' => 'Estado',
             'persona_id' => 'Persona ID',
-            'cargo_id' => 'Cargo ID',
-            'sede_id' => 'Sede ID',
+            'cargo_id' => 'Cargo',
+            'sede_id' => 'Sede',
         ];
     }
 
