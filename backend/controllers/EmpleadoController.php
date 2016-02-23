@@ -61,7 +61,6 @@ class EmpleadoController extends Controller
     public function actionCreate()
     {
         $model = new Empleado();
-<<<<<<< HEAD
         $persona = new Persona();//objeto del modelo persona
 
         if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
@@ -85,8 +84,6 @@ class EmpleadoController extends Controller
 
             $model->save();
 
-=======
->>>>>>> refs/remotes/origin/master
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
