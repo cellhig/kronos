@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\widgets\pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\MunicipioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Municipios');
+$this->title = 'Municipios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="municipio-index">
@@ -16,9 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Municipio'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Municipio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?php pjax::begin(); ?> 
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -32,5 +32,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php pjax::end(); ?>
+
 </div>

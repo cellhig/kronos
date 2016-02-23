@@ -16,23 +16,7 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?= $form->field($model, 'id') ?>
-    <!-- campos de persona -->
 
-    <?= $form->field($persona, 'nombre') ?>
-
-    <?= $form->field($persona, 'apellido') ?>
-
-    <?= $form->field($persona, 'identificacion') ?>
-
-    <?= $form->field($persona, 'direccion') ?>
-
-    <?php // echo $form->field($model, 'telefono') ?>
-
-    <?php // echo $form->field($model, 'municipio_id') ?>
-
-    <?php // echo $form->field($model, 'tipo_identificacion_id') ?>
-
-    <!-- fin campos de persona -->
     <?= $form->field($model, 'telefono_movil') ?>
 
     <?= $form->field($model, 'estado') ?>

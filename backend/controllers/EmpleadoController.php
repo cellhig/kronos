@@ -4,7 +4,6 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Empleado;
-use backend\models\Persona;
 use backend\models\EmpleadoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -62,6 +61,7 @@ class EmpleadoController extends Controller
     public function actionCreate()
     {
         $model = new Empleado();
+<<<<<<< HEAD
         $persona = new Persona();//objeto del modelo persona
 
         if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
@@ -85,13 +85,15 @@ class EmpleadoController extends Controller
 
             $model->save();
 
+=======
+>>>>>>> refs/remotes/origin/master
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
             
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'persona' => $persona,//uso el objeto persona aqui para poder guaradar los datos en la BD
             ]);
         }
     }
@@ -104,28 +106,13 @@ class EmpleadoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = Empleado::findOne($id);
-        $persona = Persona::findOne($id);
+        $model = $this->findModel($id);
 
-        if (!isset($model, $persona)) {
-            throw new NotFoundHttpException("The user was not found.");
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
-            $isValid = $model->validate();
-            $isValid = $persona->validate() && $isValid;
-
-            if ($isValid) {
-                $model->save(false);
-                $persona->save(false);
-                return $this->redirect(['empleado/view', 'id'=>$id]);
-            }
-
-            //return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'persona' => $persona,//uso el objeto persona aqui para poder actualizar los datos en la BD
             ]);
         }
     }

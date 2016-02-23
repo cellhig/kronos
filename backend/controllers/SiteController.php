@@ -35,6 +35,15 @@ class SiteController extends Controller
                          && PermisosHelpers::requerirEstado('Activo');
                         }
                     ],
+                        [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                         return PermisosHelpers::requerirMinimoRol('User') 
+                         && PermisosHelpers::requerirEstado('Activo');
+                        }
+                    ],
                     [
                         'actions' => ['logout'],
                         'allow' => true,
