@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Registrar Empleado', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Empleado', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,43 +26,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            /*[
-                'attribute'=>'persona_id',
-                'value'=>'persona.nombre'
-            ],*/ // array para habilitar busqueda.
             'persona.nombre',
-            /*[
-                'attribute'=>'persona_id',
-                'value'=>'persona.apellido'
-            ],*/ // array para habilitar busqueda.
             'persona.apellido',
-
-            /*[
-                'attribute'=>'persona_id',
-                'value'=>'persona.direccion'
-            ],*/ // array para habilitar busqueda.
             'persona.direccion',
-
-            /*[
-                'attribute'=>'persona_id',
-                'value'=>'persona.telefono'
-            ],*/ // array para habilitar busqueda.
             'persona.telefono',
-
-            //'telefono_movil',
-
-            /*[
-                'attribute'=>'cargo_id',
-                'value'=>'cargo.nombre_cargo'
-            ],*/ // array para habilitar busqueda.
-            'cargo.nombre_cargo',
+            'telefono_movil',
             //'estado',
             //'persona_id',
-            'id',
-            'telefono_movil',
-            'estado',
-            'persona_id',
-            'cargo_id',
+            'cargo.nombre_cargo',
             // 'sede_id',
 
             ['class' => 'yii\grid\ActionColumn'],

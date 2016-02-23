@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Empleado;
+use backend\models\Persona;
 use backend\models\EmpleadoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -81,16 +82,14 @@ class EmpleadoController extends Controller
             $model->persona_id = $persona->id;
             $model->cargo_id = $model->cargo_id;
             $model->sede_id= $model->sede_id;
-
             $model->save();
 
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-            
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'persona' => $persona,//uso el objeto persona aqui para poder guaradar los datos en la BD
             ]);
         }
     }
@@ -103,13 +102,28 @@ class EmpleadoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = Empleado::findOne($id);
+        $persona = Persona::findOne($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (!isset($model, $persona)) {
+            throw new NotFoundHttpException("The user was not found.");
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
+            $isValid = $model->validate();
+            $isValid = $persona->validate() && $isValid;
+
+            if ($isValid) {
+                $model->save(false);
+                $persona->save(false);
+                return $this->redirect(['empleado/view', 'id'=>$id]);
+            }
+
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'persona' => $persona,//uso el objeto persona aqui para poder actualizar los datos en la BD
             ]);
         }
     }
@@ -122,8 +136,6 @@ class EmpleadoController extends Controller
      */
     public function actionDelete($id)
     {
-        $persona = Persona::findOne($id);//ojo aqui(no esta implementado)
-
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
