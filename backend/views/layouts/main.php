@@ -16,44 +16,39 @@ use backend\assets\FontAwesomeAsset;
 AppAsset::register($this);
 FontAwesomeAsset::register($this);
  
-?>
- 
-             <?php $this->beginPage() ?>
+?> 
+<?php $this->beginPage() ?>
             
 <!DOCTYPE html>
- 
 <html lang="<?= Yii::$app->language ?>">
- 
 <head>
- <meta charset="<?= Yii::$app->charset ?>"/>
-    
+<meta charset="<?= Yii::$app->charset ?>"/>
 <meta name="viewport" 
-content="width=device-width, 
-initial-scale=1">
+
+content="width=device-width,initial-scale=1">
     
-    <?= Html::csrfMetaTags() ?>
+<?= Html::csrfMetaTags() ?>
     
 <title><?= Html::encode($this->title) ?></title>
     
-            <?php $this->head() ?>
+<?php $this->head() ?>
     
 </head>
- 
 <body>
-            <?php $this->beginBody() ?>
- 
-    <div class="wrap">
+
+<?php $this->beginBody() ?>
+<div class="wrap">
     
     
 <?php
-            
-  if (!Yii::$app->user->isGuest){
-  
-      $es_admin = PermisosHelpers::requerirMinimoRol('Admin');
+if (!Yii::$app->user->isGuest){
+$es_Admin = PermisosHelpers::requerirMinimoRol('Admin');
+$es_User = PermisosHelpers::requerirMinimoRol('User');
+
  
    NavBar::begin([
  
-    'brandLabel' => 'Yii 2 Build <i class="fa fa-plug"></i> Admin',
+    'brandLabel' => 'Distrinet <i class="fa fa-cogs"></i> Admin',
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
            'class' => 'navbar-inverse navbar-fixed-top',
@@ -70,52 +65,42 @@ initial-scale=1">
            'class' => 'navbar-inverse navbar-fixed-top',
       ],
   ]);
- 
-            
+           
             
   $menuItems = [
       ['label' => 'Home', 'url' => ['site/index']],
   ];
   }
    
-  if (!Yii::$app->user->isGuest && $es_admin) {
+  if (!Yii::$app->user->isGuest && $es_Admin) {
  
-      /*$menuItems[] = ['label' => 'Usuarios', 'url' => ['user/index']];
-            
-      $menuItems[] = ['label' => 'Perfiles', 'url' => ['profile/index']];
-            
-      $menuItems[] = ['label' => 'Roles', 'url' => ['role/index']];
-                
-      $menuItems[] = ['label' => 'Tipos de Usuario', 'url' => ['user-type/index']];
-           
-      $menuItems[] = ['label' => 'Estados', 'url' => ['status/index']];*/
+      //$menuItems[] = ['label' => 'Usuarios', 'url' => ['user/index']];            
+      //$menuItems[] = ['label' => 'Perfiles', 'url' => ['perfil/index']];            
+      //$menuItems[] = ['label' => 'Roles', 'url' => ['rol/index']];                
+      //$menuItems[] = ['label' => 'Tipos de Usuario', 'url' => ['tipo-usuario/index']];           
+      //$menuItems[] = ['label' => 'Estados', 'url' => ['estado/index']];
  
    }
   
-  if (Yii::$app->user->isGuest) {
- 
-     $menuItems[] = ['label' => 'Login', 'url' => ['site/login']];
- 
-  } else {
- 
+   if (Yii::$app->user->isGuest) { 
+       $menuItems[] = ['label' => 'Login', 'url' => ['site/login']]; 
+   } else { 
       $menuItems[] = ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                      'url' => ['/site/logout'],
-                      'linkOptions' => ['data-method' => 'post']
-                ];
- 
+      'url' => ['/site/logout'],
+      'linkOptions' => ['data-method' => 'post']
+      ]; 
   } 
                                                                                                                   
-  echo Nav::widget([
- 
+  echo Nav::widget([ 
       'options' => ['class' => 'navbar-nav navbar-right'],
-      'items' => $menuItems,
- 
-  ]);
+      'items' => $menuItems, 
+      ]);
  
   NavBar::end();
  
 ?>
  
+
          
 <div class="container">
  
