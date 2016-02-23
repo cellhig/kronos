@@ -25,7 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-<<<<<<< HEAD
             //'id',
             /*[
                 'attribute'=>'persona_id',
@@ -58,14 +57,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ],*/ // array para habilitar busqueda.
             'cargo.nombre_cargo',
             //'estado',
-            //'persona_id',            
-=======
+            //'persona_id',
             'id',
             'telefono_movil',
             'estado',
             'persona_id',
             'cargo_id',
->>>>>>> refs/remotes/origin/master
             // 'sede_id',
 
             ['class' => 'yii\grid\ActionColumn'],
