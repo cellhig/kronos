@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Empleado', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Empleado', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'persona.apellido',
             'persona.direccion',
             'persona.telefono',
-            'telefono_movil',
+            //'telefono_movil',
             //'estado',
             //'persona_id',
             'cargo.nombre_cargo',

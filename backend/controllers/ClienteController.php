@@ -102,7 +102,8 @@ class ClienteController extends Controller
     public function actionUpdate($id)
     {
         $model = Cliente::findOne($id);
-        $persona = Persona::findOne($id);
+        $pid = $model->persona_id;//busca el id de persona asociado a empleado
+        $persona = Persona::findOne($pid);
 
         if (!isset($model, $persona)) {
             throw new NotFoundHttpException("The user was not found.");
