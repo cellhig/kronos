@@ -11,6 +11,8 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'language'=> 'es',
+    'sourceLanguage' => 'en',
     'modules' => [],
     'components' => [
         'user' => [
