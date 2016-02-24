@@ -13,8 +13,8 @@ $this->title = 'Update Empleado: ' . ' ' . $model->id;
 $this->title = 'Actualizar datos: ' . ' ' . $persona->nombre. ' ' .$persona->apellido;
 
 $this->params['breadcrumbs'][] = ['label' => 'Empleados', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = ['label' => $persona->nombre, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="empleado-update">
 

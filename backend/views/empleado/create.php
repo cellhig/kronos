@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Empleado */
 
-$this->title = 'Create Empleado';
+$this->title = 'Registar Empleado';
 $this->params['breadcrumbs'][] = ['label' => 'Empleados', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -16,11 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
-
         'persona' => $persona, //renderiza el modelo de persona
-
-        'persona' => $persona,
-
     ]) ?>
 
 </div>
