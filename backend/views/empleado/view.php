@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Actualizar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'id' => $model->id], [
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,19 +28,32 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+<<<<<<< HEAD
+            'id',
+=======
             //'id',
+>>>>>>> copia-loca-desktop
             'persona.nombre',
             'persona.apellido',
             'persona.direccion',
             'persona.telefono',
             'telefono_movil',
+<<<<<<< HEAD
+            'sede.nombre_sede',
+            'cargo.nombre_cargo',
+            //'estado',
+            
+=======
             'cargo.nombre_cargo',
             'sede.nombre_sede',
             'estado',
             //'persona_id',
             //'cargo_id',
             //'sede_id',
+>>>>>>> copia-loca-desktop
         ],
     ]) ?>
 
 </div>
+
+
