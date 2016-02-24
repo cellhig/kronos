@@ -16,7 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+<<<<<<< HEAD
         'persona' => $persona, //renderiza el modelo de persona
+=======
+        'persona' => $persona,
+>>>>>>> refs/remotes/origin/copia-loca-desktop
     ]) ?>
 
 </div>
