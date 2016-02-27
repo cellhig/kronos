@@ -59,7 +59,7 @@ $es_User = PermisosHelpers::requerirMinimoRol('User');
    
     NavBar::begin([
  
-      'brandLabel' => 'Yii 2 Build <i class="fa fa-plug"></i>',
+      'brandLabel' => 'Distrinet<i class="fa fa-plug"></i>',
       'brandUrl' => Yii::$app->homeUrl,
       'options' => [
            'class' => 'navbar-inverse navbar-fixed-top',
