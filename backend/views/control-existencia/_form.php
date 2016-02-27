@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'observaciones')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'observaciones')->textarea(['rows' => 3]) ?>
 
     <?= $form->field($model, 'fecha')->textInput() ?>
 
