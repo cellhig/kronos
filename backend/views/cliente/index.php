@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cliente', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Cliente', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -48,9 +48,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'persona_id',
                 'value'=>'persona.telefono'
             ],*/ // array para habilitar busqueda.
+
+            'persona.municipio.nombre_municipio',
             'persona.telefono',
-            'correo_electronico',
-            'estado',
+            //'correo_electronico',
+            //'estado',
             //'persona_id',
 
             ['class' => 'yii\grid\ActionColumn'],

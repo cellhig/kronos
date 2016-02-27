@@ -24,6 +24,8 @@ class Producto extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public $file;
+
     public static function tableName()
     {
         return 'producto';
@@ -40,7 +42,8 @@ class Producto extends \yii\db\ActiveRecord
             [['categoria_producto_id'], 'integer'],
             [['codigo_producto'], 'string', 'max' => 10],
             [['nombre'], 'string', 'max' => 50],
-            [['descripcion'], 'string', 'max' => 255]
+            [['file'], 'file'],
+            [['descripcion', 'imagen'], 'string', 'max' => 255]
         ];
     }
 
@@ -53,6 +56,7 @@ class Producto extends \yii\db\ActiveRecord
             'id' => 'ID',
             'codigo_producto' => 'Codigo Producto',
             'nombre' => 'Nombre',
+            'file' => 'Imagen del Producto',
             'descripcion' => 'Descripcion',
             'estado' => 'Estado',
             'categoria_producto_id' => 'Categoria Producto ID',
