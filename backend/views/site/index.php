@@ -7,201 +7,290 @@ use common\models\PermisosHelpers;
  * @var yii\web\View $this
  */
 
-$this->title = 'Kronos';
+$this->title = 'Distrinet';
 
 $es_admin = PermisosHelpers::requerirMinimoRol('Admin');
+$es_User = PermisosHelpers::requerirMinimoRol('User');
+
+$this->title = '';
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
 
 <div class="site-index">
-
     <div class="jumbotron">
 
-        <h1>Gestión de Usuarios</h1>
 
-        <br>
-        <p>
 
-            <?php
+    <?php
+     if (!Yii::$app->user->isGuest && $es_admin): ?>
+            
+                <div class="row" >
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-user fa-3x"></i>
+                        <h4>Usuarios</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-            if (!Yii::$app->user->isGuest && $es_admin) {
 
-                echo Html::a('Administrar Usuarios', ['user/index'], ['class' => 'btn btn-lg btn-success']);
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-tags fa-3x"></i>
+                        <h4>Perfiles</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-            }
 
-            ?>
+                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-paper-plane fa-3x"></i>
+                        <h4>Roles</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-        </p>
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-gamepad fa-3x"></i>
+                        <h4>Tipos Usuarios</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-    </div>
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-toggle-on fa-3x"></i>
+                        <h4>Estados</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-    <div class="body-content">
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-book fa-3x"></i>
+                        <h4>Catalogo</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-        <div class="row">
-            <div class="col-lg-4">
 
-                <h2><i class="fa fa-user"></i> Usuarios</h2>
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-bullhorn fa-3x"></i>
+                        <h4>Web</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-                <p>
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-users fa-3x"></i>
+                        <h4>Empleados</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-                    Este es el lugar para administrar usuarios.  Puede editar estados y roles desde aquí.
-                    La IU es fácil de usar e intuitiva, simplemente haga clic en el link de abajo para comenzar.
+             
 
-                </p>
+        <?php endIf ; ?>
 
-                <p>
+     <?php
+     if (!Yii::$app->user->isGuest && $es_User): ?>
+            
+                
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-male fa-3x"></i>
+                        <h4>Clientes</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-                    <?php
 
-                    if (!Yii::$app->user->isGuest && $es_admin) {
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-cubes fa-3x"></i>
+                        <h4>Existencias</h4>
+                        </a>
+                        </div> 
+                  </div> 
 
-                        echo Html::a('Administrar Usuarios', ['user/index'], ['class' => 'btn btn-default']);
 
-                    }
+                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                             <a href="http://localhost/kronos/backend/web/index.php?r=user%2Findex" >
+                            <i class="fa fa-shopping-cart fa-3x"></i>
+                        <h4>Ventas</h4>
+                        </a>
+                        </div> 
+                  </div> 
+                </div> 
 
-                    ?>
+   </div> 
 
-                </p>
-
-            </div>
-            <div class="col-lg-4">
-
-                <h2>Roles</h2>
-
-                <p>
-
-                    Aquí es donde administra Roles.  Puede decidir quién es admin y quién no.  Puede
-                    agregar un nuevo rol si lo desea, simplemente haciendo clic en el link de abajo para comenzar.
-
-                </p>
-
-                <p>
-
-                    <?php
-
-                    if (!Yii::$app->user->isGuest && $es_admin) {
-
-                        echo Html::a('Administrar Roles', ['rol/index'], ['class' => 'btn btn-default']);
-
-                    }
-
-                    ?>
-
-                </p>
-
-            </div>
-            <div class="col-lg-4">
-
-                <h2>Perfiles</h2>
-
-                <p>
-
-                    ¿Necesita revisar Perfiles?  Este es el lugar para hacerlo.
-                    Estos son fáciles de administrar via IU. Simplemente haga clic en el link de abajo para
-                    administrar perfiles.
-
-                </p>
-
-                <p>
-
-                    <?php
-
-                    if (!Yii::$app->user->isGuest && $es_admin) {
-
-                        echo Html::a('Administrar Perfiles', ['perfil/index'], ['class' => 'btn btn-default']);
-
-                    }
-
-                    ?>
-
-                </p>
+        <?php endIf ; ?>
 
             </div>
         </div>
+</div>
 
-        <div class="row">
-            <div class="col-lg-4">
 
-                <h2>Tipos de Usuario</h2>
 
-                <p>
 
-                    Este es el lugar para administrar tipos de usuario.  Puede editar tipos
-                    de usuario desde aquí. La IU es fácil de usar e intuitiva, simplemente
-                    haga clic en el link  de abajo para comenzar.
 
-                </p>
 
-                <p>
 
-                    <?php
+<script type="text/javascript">
 
-                    if (!Yii::$app->user->isGuest && $es_admin) {
 
-                        echo Html::a('Administrar Tipos de Usuario', ['tipo-usuario/index'], ['class' => 'btn btn-default']);
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
 
-                    }
+    http://creativecommons.org/licenses/by/3.0/
 
-                    ?>
-                </p>
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
 
-            </div>
-            <div class="col-lg-4">
 
-                <h2>Estados</h2>
+    (function ($) {
+        "use strict";
+        var mainApp = {
 
-                <p>
+            main_fun: function () {
 
-                    Aquí es donde administra Estados.  Puede agregar o eliminar.
-                    Puede añadir nuevos estados si lo desea, simplemente haga clic en el link
-                    de abajo para comenzar.
+            /*====================================
+              LOAD APPROPRIATE MENU BAR
+              ======================================*/
+              $(window).bind("load resize", function () {
+                if ($(this).width() < 768) {
+                    $('div.sidebar-collapse').addClass('collapse')
+                } else {
+                    $('div.sidebar-collapse').removeClass('collapse')
+                }
+            });
 
-                </p>
 
-                <p>
 
-                    <?php
+          },
 
-                    if (!Yii::$app->user->isGuest && $es_admin) {
+          initialization: function () {
+            mainApp.main_fun();
 
-                        echo Html::a('Administrar Estados', ['estado/index'], ['class' => 'btn btn-default']);
+        }
 
-                    }
+    }
+    // Initializing ///
 
-                    ?>
+    $(document).ready(function () {
+        mainApp.main_fun();
+    });
 
-                </p>
+}(jQuery));
 
-            </div>
-            <div class="col-lg-4">
 
-                <h2><i class="fa fa-cogs"></i> Administrar perfiles</h2>
+</script>
 
-                <p>
+<style type="text/css">
 
-                    ¿Necesita revisar Perfiles?  Este es el lugar para hacerlo.
-                    Estos son fáciles de administrar via IU.  Simplemente haga clic en el link de abajo
-                    para administrar perfiles.
 
-                </p>
 
-                <p>
+/*=============================================================
+    Authour URI: www.binarycart.com
+    License: Commons Attribution 3.0
 
-                    <?php
+    http://creativecommons.org/licenses/by/3.0/
 
-                    if (!Yii::$app->user->isGuest && $es_admin) {
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+/*==============================================
+    GENERAL  STYLES    
+    =============================================*/
+    body {
+        font-family: 'Open Sans', sans-serif;
+        line-height:30px;
+    }
 
-                        echo Html::a('Administrar Perfiles', ['perfil/index'], ['class' => 'btn btn-default']);
+    #wrapper {
+        width: 100%;
+        margin-top:50px;
+    }
 
-                    }
+    #page-wrapper {
+        padding: 15px 15px;
+        min-height: 600px;
+        background:#F3F3F3;
 
-                    ?>
+    }
+    #page-inner {
+        width:100%;
+        margin:10px 20px 10px 0px;
+        background-color:#fff!important;
+        padding:10px;
+        min-height:1050px;
+    }
+    .pad-top {
+        padding-top:15px;
+    }
+    
+/*==============================================
+    DASHBOARD STYLES    
+    =============================================*/
+    .div-square {
+        padding:5px;
+        border:3px double #e1e1e1;
+        -webkit-border-radius:8px;
+        -moz-border-radius:8px;
+        border-radius:8px;
+        margin:5px;
 
-                </p>
+    }
 
-            </div>
-        </div>
-    </div>
+    .div-square> a,.div-square> a:hover {
+        color:#808080;
+        text-decoration:none;
+    }
+/*==============================================
+    MEDIA QUERIES     
+    =============================================*/
+
+    @media(min-width:768px) {
+       #page-wrapper{
+         margin: 0 0 0 260px;
+         padding: 15px 30px;
+         min-height: 1050px;
+
+     }
+
+
+     .navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 260px;
+
+    }
+
+
+}
+
+</style>
+
 </div>

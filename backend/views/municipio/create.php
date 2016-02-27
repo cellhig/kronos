@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Municipio */
 
-$this->title = Yii::t('app', 'Create Municipio');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Municipios'), 'url' => ['index']];
+$this->title = 'Create Municipio';
+$this->params['breadcrumbs'][] = ['label' => 'Municipios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="municipio-create">

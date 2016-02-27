@@ -102,13 +102,28 @@ class EmpleadoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = Empleado::findOne($id);
+        $persona = Persona::findOne($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (!isset($model, $persona)) {
+            throw new NotFoundHttpException("The user was not found.");
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
+            $isValid = $model->validate();
+            $isValid = $persona->validate() && $isValid;
+
+            if ($isValid) {
+                $model->save(false);
+                $persona->save(false);
+                return $this->redirect(['empleado/view', 'id'=>$id]);
+            }
+
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'persona' => $persona,//uso el objeto persona aqui para poder actualizar los datos en la BD
             ]);
         }
     }

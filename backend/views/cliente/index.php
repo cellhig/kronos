@@ -25,10 +25,33 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
+                        //'id',
+            /*[
+                'attribute'=>'persona_id',
+                'value'=>'persona.nombre'
+            ],*/ // array para habilitar busqueda.
+            'persona.nombre',
+            /*[
+                'attribute'=>'persona_id',
+                'value'=>'persona.apellido'
+            ],*/ // array para habilitar busqueda.
+            'persona.apellido',
+
+            /*[
+                'attribute'=>'persona_id',
+                'value'=>'persona.direccion'
+            ],*/ // array para habilitar busqueda.
+            'persona.direccion',
+
+            /*[
+                'attribute'=>'persona_id',
+                'value'=>'persona.telefono'
+            ],*/ // array para habilitar busqueda.
+            'persona.telefono',
             'correo_electronico',
             'estado',
-            'persona_id',
+            //'persona_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
