@@ -22,4 +22,13 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+
+    'modules' => [//add by Scott
+        'gridview' => [
+            'class' => '\kartik\grid\Module',
+             // 'downloadAction' => 'gridview/export/download',
+            'downloadAction' => 'export',  //change default download action to your own export action.
+        ],
+    ],
+
 ];

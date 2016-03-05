@@ -37,7 +37,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'correo_electronico') ?>
 
-    <?= $form->field($model, 'estado') ?>
+    <?= // $form->field($model, 'estado') ?>
 
     <?= $form->field($model, 'persona_id') ?>
 

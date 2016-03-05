@@ -8,6 +8,7 @@ use backend\models\MunicipioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use arturoliveira\ExcelView;
 
 /**
  * MunicipioController implements the CRUD actions for Municipio model.
@@ -118,4 +119,23 @@ class MunicipioController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionExport() {
+        $searchModel = new CountrySearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        ExcelView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'fullExportType'=> 'xlsx', //can change to html,xls,csv and so on
+            'grid_mode' => 'export',
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+                'code',
+                'name',
+                'population',
+              ],
+        ]);
+    }
+
+    
 }

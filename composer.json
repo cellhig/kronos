@@ -21,7 +21,17 @@
         "kartik-v/yii2-social": "dev-master",
         "fortawesome/font-awesome": "4.2.0",
         "kartik-v/yii2-widget-select2": "@dev",
-        "yiisoft/yii2-imagine": "^2.0"
+        "yiisoft/yii2-imagine": "^2.0",
+        "kartik-v/yii2-export": "@dev",
+        "kartik-v/yii2-mpdf": "*",
+        "kartik-v/yii2-export": "*",
+        "kartik-v/yii2-grid": "*",
+        "kartik-v/yii2-krajee-base": "@dev",
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-grid": "dev-master",
+        "kartik-v/yii2-editable": "@dev",
+        "kartik-v/yii2-mpdf": "@dev",
+        "arturoliveira/yii2-excelview": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
@@ -29,6 +39,7 @@
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*",
         "yiisoft/yii2-jui": "*"
+        
     },
     "config": {
         "process-timeout": 1800
