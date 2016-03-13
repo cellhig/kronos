@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SedeSearch */
@@ -52,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
            ?>
 
 
-
+    <?php Pjax::begin(); ?> 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -68,5 +69,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
+    <?php Pjax::end(); ?> 
 </div>
