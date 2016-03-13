@@ -15,11 +15,14 @@ class ClienteSearch extends Cliente
     /**
      * @inheritdoc
      */
+
+    public $buscador;
+
     public function rules()
     {
         return [
-            [['id', 'persona_id'], 'integer'],
-            [['correo_electronico', 'estado'], 'safe'],
+            [['id'], 'integer'],
+            [['correo_electronico', 'estado', 'persona_id', 'buscador'], 'safe'],
         ];
     }
 
@@ -48,20 +51,29 @@ class ClienteSearch extends Cliente
         ]);
 
         $this->load($params);
-
+        
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
 
-        $query->andFilterWhere([
+        $query->joinWith('persona');//relacion con persona.
+
+        /*$query->andFilterWhere([
             'id' => $this->id,
             'persona_id' => $this->persona_id,
-        ]);
+        ]);*/ // a razon del bucador globla no es necesario este filro. se deshabilta 
 
-        $query->andFilterWhere(['like', 'correo_electronico', $this->correo_electronico])
-            ->andFilterWhere(['like', 'estado', $this->estado]);
+        /*
+        ## el buscador global usa parametros orFilterWhere([]) en vez de andFilterWhere({}) asi puede validar cada campo de la tabla
+        */
+        $query->orFilterWhere(['like', 'correo_electronico', $this->buscador])
+            ->orFilterWhere(['like', 'persona.nombre', $this->buscador])
+            ->orFilterWhere(['like', 'persona.apellido', $this->buscador])
+            ->orFilterWhere(['like', 'persona.direccion', $this->buscador])
+            ->orFilterWhere(['like', 'persona.telefono', $this->buscador])
+            ->orFilterWhere(['like', 'persona.municipio_id', $this->buscador]);
 
         return $dataProvider;
     }
