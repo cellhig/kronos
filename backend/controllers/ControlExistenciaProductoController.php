@@ -8,6 +8,7 @@ use backend\models\ControlExistenciaProductoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\ControlExistencia;
 
 /**
  * ControlExistenciaProductoController implements the CRUD actions for ControlExistenciaProducto model.
@@ -61,12 +62,27 @@ class ControlExistenciaProductoController extends Controller
     public function actionCreate()
     {
         $model = new ControlExistenciaProducto();
+        $ctrlExist = new ControlExistencia();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $ctrlExist->load(Yii::$app->request->post())) {
+
+            $ctrlExist->fecha = $ctrlExist->fecha;
+            $ctrlExist->observaciones = $ctrlExist->observaciones;
+            $ctrlExist->sede_id = $ctrlExist->sede_id;
+
+            $ctrlExist->save();
+
+            $model->cantidad = $model->cantidad;
+            $model->control_existencia_id = $ctrlExist->id;
+            $model->producto_id = $model->producto_id;
+
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'ctrlExist' => $ctrlExist,
             ]);
         }
     }
@@ -79,13 +95,25 @@ class ControlExistenciaProductoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = ControlExistenciaProducto::findOne($id);
+        $ctrlId = $model->control_existencia_id;
+        $ctrlExist = ControlExistencia::findOne($ctrlId);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $ctrlExist->load(Yii::$app->request->post())) {
+            $isValid = $model->validate();
+            $isValid = $ctrlExist->validate() && $isValid;
+
+            if ($isValid) {
+                $model->save(false);
+                $ctrlExist->save(false);
+
+                return $this->redirect(['control-existencia-producto\view', 'id' => $id]);
+            }
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'ctrlExist' => $ctrlExist,
             ]);
         }
     }

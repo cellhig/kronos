@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Control Existencia Producto', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Existencia de Producto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
      <?php 
@@ -53,14 +53,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
+            //'control_existencia_id',
+            [
+                'attribute' => 'control_existencia_id',
+                'value' => 'controlExistencia.fecha',
+                'label' => 'Fecha',
+            ],
+            //'controlExistencia.fecha',
+            [
+                'attribute' => 'control_existencia_id',
+                'value' => 'controlExistencia.sede.nombre_sede',
+                'label' => 'Sede',
+            ],
+            //'controlExistencia.sede.nombre_sede',
+            [
+                'attribute' => 'producto_id',
+                'value' => 'producto.nombre',
+            ],
+            //'producto.nombre',
             'cantidad',
-            'control_existencia_id',
-            'producto_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

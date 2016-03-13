@@ -47,7 +47,7 @@ class ControlExistencia extends \yii\db\ActiveRecord
             'id' => 'ID',
             'observaciones' => 'Observaciones',
             'fecha' => 'Fecha',
-            'sede_id' => 'Sede ID',
+            'sede_id' => 'Sede',
         ];
     }
 

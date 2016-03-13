@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'observaciones',
             'fecha',
-            'sede_id',
+            'sede.nombre_sede',
 
     ];
 ?>
@@ -61,11 +61,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'observaciones',
+            //'id',            
+            [
+                'attribute' => 'sede_id',
+                'value' => 'sede.nombre_sede',
+            ],
             'fecha',
-            'sede_id',
-
+            'observaciones',
+                        
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
