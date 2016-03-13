@@ -15,37 +15,22 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-    <!-- campos de persona -->
+    <?= $form->field($model, 'buscador') ?>
 
-    <?= $form->field($persona, 'nombre') ?>
 
-    <?= $form->field($persona, 'apellido') ?>
 
-    <?= $form->field($persona, 'identificacion') ?>
 
-    <?= $form->field($persona, 'direccion') ?>
-
-    <?php // echo $form->field($model, 'telefono') ?>
-
-    <?php // echo $form->field($model, 'municipio_id') ?>
-
-    <?php // echo $form->field($model, 'tipo_identificacion_id') ?>
-
-    <!-- fin campos de persona -->
-    <?= $form->field($model, 'telefono_movil') ?>
-
-    <?= $form->field($model, 'estado') ?>
+    <!--<?= $form->field($model, 'estado') ?>
 
     <?= $form->field($model, 'persona_id') ?>
 
     <?= $form->field($model, 'cargo_id') ?>
 
-    <?php // echo $form->field($model, 'sede_id') ?>
+    <?php // echo $form->field($model, 'sede_id') ?>-->
 
     <div class="form-group">
         <?= Html::submitButton('Buscar', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Limpiar', ['class' => 'btn btn-default']) ?>
+        <!--<?= Html::resetButton('Limpiar', ['class' => 'btn btn-default']) ?>--><!-- deshabilito el boton limpiar no es necesario aún-->
     </div>
 
     <?php ActiveForm::end(); ?>

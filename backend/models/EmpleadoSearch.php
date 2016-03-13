@@ -15,11 +15,13 @@ class EmpleadoSearch extends Empleado
     /**
      * @inheritdoc
      */
+    public $buscador;
+
     public function rules()
     {
         return [
-            [['id', 'persona_id', 'cargo_id', 'sede_id'], 'integer'],
-            [['telefono_movil', 'estado'], 'safe'],
+            [['id', 'sede_id'], 'integer'],
+            [['telefono_movil', 'estado', 'persona_id', 'cargo_id', 'buscador'], 'safe'],
         ];
     }
 
@@ -55,15 +57,28 @@ class EmpleadoSearch extends Empleado
             return $dataProvider;
         }
 
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'persona_id' => $this->persona_id,
-            'cargo_id' => $this->cargo_id,
-            'sede_id' => $this->sede_id,
-        ]);
+        $query->joinWith('persona');//relacion con persona
+        $query->joinWith('cargo');//relacion con cargo
 
-        $query->andFilterWhere(['like', 'telefono_movil', $this->telefono_movil])
-            ->andFilterWhere(['like', 'estado', $this->estado]);
+        /*$query->andFilterWhere([
+            'id' => $this->id,
+            //'persona_id' => $this->persona_id,
+            //'cargo_id' => $this->cargo_id,
+            'sede_id' => $this->sede_id,
+        ]);*/  // a razon del bucador globla no es necesario este filro. se deshabilta 
+
+
+        /*
+        ## el buscador global usa parametros orFilterWhere([]) en vez de andFilterWhere({}) asi puede validar cada campo de la tabla
+        */
+        $query->orFilterWhere(['like', 'telefono_movil', $this->buscador])
+            ->orFilterWhere(['like', 'estado', $this->buscador])
+            ->orFilterWhere(['like', 'persona.nombre', $this->buscador])// filtra por el nombre
+            ->orFilterWhere(['like', 'persona.apellido', $this->buscador])// filtra por el apellido
+            ->orFilterWhere(['like', 'persona.direccion', $this->buscador])// filtra por el direccion 
+            ->orFilterWhere(['like', 'persona.telefono', $this->buscador])// filtra por el telefono
+            ->orFilterWhere(['like', 'cargo.nombre_cargo', $this->buscador])//flritar por el nobre del cargo cargo
+            ;
 
         return $dataProvider;
     }

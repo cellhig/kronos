@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'control_existencia_id',            
             'controlExistencia.fecha',
             'controlExistencia.sede.nombre_sede',
+            'controlExistencia.observaciones',
             'producto.nombre',
             'cantidad',
         ],
