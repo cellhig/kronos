@@ -40,7 +40,7 @@ use kartik\select2\Select2;
 
     <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los municipios-->
     <?= $form->field($persona, 'municipio_id')->widget(Select2::classname(), [
-            'data' =>  ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio'),
+            'data' => ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio'),
             'language' => 'en',
             'options' => ['placeholder' => 'Seleccione uno'],
             'pluginOptions' => [
