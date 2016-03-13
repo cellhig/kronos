@@ -15,9 +15,9 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'buscador') ?>
 
-    <?= $form->field($model, 'codigo_producto') ?>
+    <!--<?= $form->field($model, 'codigo_producto') ?>
 
     <?= $form->field($model, 'nombre') ?>
 
@@ -25,11 +25,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'estado') ?>
 
-    <?php // echo $form->field($model, 'categoria_producto_id') ?>
+    <?php // echo $form->field($model, 'categoria_producto_id') ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Buscar', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Limpiar', ['class' => 'btn btn-default']) ?>
+        <!--<?= Html::resetButton('Limpiar', ['class' => 'btn btn-default']) ?>-->
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -15,11 +15,14 @@ class ProductoSearch extends Producto
     /**
      * @inheritdoc
      */
+
+    public $buscador;
+
     public function rules()
     {
         return [
             [['id', 'categoria_producto_id'], 'integer'],
-            [['codigo_producto', 'nombre', 'descripcion', 'estado'], 'safe'],
+            [['codigo_producto', 'nombre', 'descripcion', 'estado', 'buscador'], 'safe'],
         ];
     }
 
@@ -55,15 +58,15 @@ class ProductoSearch extends Producto
             return $dataProvider;
         }
 
-        $query->andFilterWhere([
+        /*$query->andFilterWhere([
             'id' => $this->id,
             'categoria_producto_id' => $this->categoria_producto_id,
-        ]);
+        ]);*/ //se implemento bucador global este filtro ya no es necesario
 
-        $query->andFilterWhere(['like', 'codigo_producto', $this->codigo_producto])
-            ->andFilterWhere(['like', 'nombre', $this->nombre])
-            ->andFilterWhere(['like', 'descripcion', $this->descripcion])
-            ->andFilterWhere(['like', 'estado', $this->estado]);
+        $query->orFilterWhere(['like', 'codigo_producto', $this->buscador])
+            ->orFilterWhere(['like', 'nombre', $this->buscador])
+            ->orFilterWhere(['like', 'descripcion', $this->buscador])
+            ->orFilterWhere(['like', 'estado', $this->buscador]);
 
         return $dataProvider;
     }

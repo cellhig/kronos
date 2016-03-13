@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use \yii\bootstrap\Collapse;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
+use yii\widgets\Pjax;
  
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ProfileSearch */
@@ -67,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
            ?>
 
 
-
+    <?php Pjax::begin(); ?> 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -90,5 +91,5 @@ $this->params['breadcrumbs'][] = $this->title;
             
         ],
     ]); ?>
- 
+    <?php Pjax::end(); ?>  
 </div>
