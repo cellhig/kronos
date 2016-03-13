@@ -3,6 +3,10 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use \yii\bootstrap\Collapse;
+use kartik\export\ExportMenu;
+use arturoliveira\ExcelView;
+
+
  
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\UserSearch */
@@ -32,7 +36,34 @@ $this->params['breadcrumbs'][] = $this->title;
   
    
 ?>
-    
+    <?php 
+
+         $gridColumns = [
+        ['class' => 'kartik\grid\SerialColumn'],
+                'id',
+                'cantidad',
+                'control_existencia_id',
+                'producto_id',
+        ];
+    ?>
+
+          <?php
+        echo ExportMenu::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => $gridColumns,
+        'fontAwesome' => true,
+        'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
+        'columnSelectorOptions'=>[
+            'label' => 'Columns'],
+        'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+        'disabledColumns'=>[0,0], // ID & Name
+        'noExportColumns'=>[6], // Status
+        'dropdownOptions' => [
+            'label' => 'Export All',
+            'class' => 'btn btn-default'
+        ],
+    ]);
+           ?>
  
    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -59,5 +90,9 @@ $this->params['breadcrumbs'][] = $this->title;
             
         ],
     ]); ?>
+
+
+
+
  
 </div>

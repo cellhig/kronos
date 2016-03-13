@@ -40,7 +40,7 @@ use kartik\select2\Select2;
 
     <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los municipios-->
     <?= $form->field($persona, 'municipio_id')->widget(Select2::classname(), [
-            'data' =>  ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio'),
+            'data' => ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio'),
             'language' => 'en',
             'options' => ['placeholder' => 'Seleccione uno'],
             'pluginOptions' => [
@@ -80,7 +80,7 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => 'Seleccione uno']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Registar' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

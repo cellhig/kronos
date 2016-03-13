@@ -25,7 +25,7 @@ class SiteController extends Controller
                     [
                         'actions' => ['login', 'error'],
                         'allow' => true,
-                    ],
+               ],
                     [
                         'actions' => ['index'],
                         'allow' => true,
@@ -44,6 +44,199 @@ class SiteController extends Controller
                          && PermisosHelpers::requerirEstado('Activo');
                         }
                     ],
+
+                  [
+                    'actions' => ['user/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                 [
+                    'actions' => ['perfil/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                  [
+                    'actions' => ['rol/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                [
+                    'actions' => ['tipo-usuario/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                [
+                    'actions' => ['estado/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                [
+                    'actions' => ['catalogo/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('Admin') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                [
+                    'actions' => ['web/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('Admin') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                   [
+                    'actions' => ['empleado/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('Admin') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                     [
+                    'actions' => ['cliente/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('User') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+                    [
+                    'actions' => ['control-existencia-producto/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('User') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+                     [
+                    'actions' => ['venta-asistida-producto/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('User') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                    [
+                    'actions' => ['Cargo/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+
+                    [
+                    'actions' => ['categoria-producto/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+
+                    [
+                    'actions' => ['departamento/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                   [
+                    'actions' => ['municipio/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                      [
+                    'actions' => ['estado-venta-asistida/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+
+                      [
+                    'actions' => ['sede/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+
+                      [
+                    'actions' => ['tipo-identificacion/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
+                         [
+                    'actions' => ['tipo-usuario/index'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                    'matchCallback' => function ($rule, $action) {
+                     return PermisosHelpers::requerirMinimoRol('SuperUsuario') 
+                     && PermisosHelpers::requerirEstado('Activo');
+                    }
+                ],
+
                     [
                         'actions' => ['logout'],
                         'allow' => true,

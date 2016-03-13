@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ControlExistenciaProducto */
 
-$this->title = 'Update Control Existencia Producto: ' . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Control Existencia Productos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Actualizar Control Existencia: ';// . ' ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Control Existencia de Productos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'existencia', 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="control-existencia-producto-update">
 
@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'ctrlExist' => $ctrlExist,
     ]) ?>
 
 </div>

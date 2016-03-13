@@ -9,11 +9,15 @@ use backend\models\Sede;
 use backend\models\Departamento;
 use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
+use common\models\PermisosHelpers;
 
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Cliente */
 /* @var $form yii\widgets\ActiveForm */
+
+$es_admin = PermisosHelpers::requerirMinimoRol('Admin');
+
 ?>
 
 <div class="cliente-form">
@@ -58,7 +62,10 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'correo_electronico')->textInput(['maxlength' => true]) ?>
 
+<?php if (!Yii::$app->user->isGuest && $es_admin): ?>
     <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => 'Seleccione uno']) ?>
+<?php endif ?>
+    
 
     <!--<?= $form->field($model, 'persona_id')->textInput() ?>-->
 

@@ -18,8 +18,8 @@ class ControlExistenciaSearch extends ControlExistencia
     public function rules()
     {
         return [
-            [['id', 'sede_id'], 'integer'],
-            [['observaciones', 'fecha'], 'safe'],
+            [['id'], 'integer'],
+            [['observaciones', 'fecha', 'sede_id'], 'safe'],//modificacion de campo sede_id de integer a safe, permitirá la busqueda de por string
         ];
     }
 
@@ -55,13 +55,16 @@ class ControlExistenciaSearch extends ControlExistencia
             return $dataProvider;
         }
 
+        $query->joinWith('sede');// defino la variable con la función y le paso la relación con la tabla sede
+
         $query->andFilterWhere([
             'id' => $this->id,
             'fecha' => $this->fecha,
-            'sede_id' => $this->sede_id,
+            //'sede_id' => $this->sede_id,
         ]);
 
-        $query->andFilterWhere(['like', 'observaciones', $this->observaciones]);
+        $query->andFilterWhere(['like', 'observaciones', $this->observaciones])
+                ->andFilterWhere(['like', 'sede.nombre_sede', $this->sede_id,]);//este parametro me permite buscar por nombre.
 
         return $dataProvider;
     }
