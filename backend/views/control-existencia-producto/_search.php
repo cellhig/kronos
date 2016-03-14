@@ -15,13 +15,13 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'buscador') ?>
 
-    <?= $form->field($model, 'cantidad') ?>
+    <!--<?= $form->field($model, 'cantidad') ?>
 
     <?= $form->field($model, 'control_existencia_id') ?>
 
-    <?= $form->field($model, 'producto_id') ?>
+    <?= $form->field($model, 'producto_id') ?> --> <!-- se implementa buscador global no se necesitan estos campos por ahora-->
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
