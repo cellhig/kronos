@@ -45,7 +45,7 @@ class ControlExistenciaProducto extends \yii\db\ActiveRecord
             'id' => 'ID',
             'cantidad' => 'Cantidad',
             'control_existencia_id' => 'Control Existencia ID',
-            'producto_id' => 'Producto ID',
+            'producto_id' => 'Producto',
         ];
     }
 
