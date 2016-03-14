@@ -107,7 +107,7 @@ class ControlExistenciaProductoController extends Controller
                 $model->save(false);
                 $ctrlExist->save(false);
 
-                $this->redirect(['control-existencia-producto/view', 'id'=>$id]);
+                $this->redirect(['control-existencia-producto/view', 'id' => $id]);
             }
             //return $this->redirect(['view', 'id' => $model->id]);
         } else {
