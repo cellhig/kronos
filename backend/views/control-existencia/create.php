@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ControlExistencia */
 
-$this->title = 'Create Control Existencia';
+$this->title = 'Registrar Control Existencia';
 $this->params['breadcrumbs'][] = ['label' => 'Control Existencias', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
