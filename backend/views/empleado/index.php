@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
+use yii\widgets\Pjax;
 
 
 
@@ -41,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ];
     ?>
 
-          <?php
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -60,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
            ?>
 
 
+     <?php Pjax::begin(); ?>      
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,//se implementa un bucador global por eso ya no es necesario
@@ -105,5 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    <?php Pjax::end(); ?>
 
 </div>

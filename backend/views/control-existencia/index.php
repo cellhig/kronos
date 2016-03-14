@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
+use yii\widgets\Pjax;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ControlExistenciaSearch */
@@ -18,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Control Existencia', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Control Existencia', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     
@@ -42,22 +44,22 @@ $this->params['breadcrumbs'][] = $this->title;
     'fontAwesome' => true,
     'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
     'columnSelectorOptions'=>[
-        'label' => 'Columns'],
+        'label' => 'Columnas'],
     'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
     'disabledColumns'=>[0,0], // ID & Name
     'noExportColumns'=>[6], // Status
     'dropdownOptions' => [
-        'label' => 'Export All',
+        'label' => 'Exportar A...',
         'class' => 'btn btn-default'
     ],
 ]);
        ?>
 
     
-
+    <?php Pjax::begin(); ?> 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -72,5 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    <?php Pjax::end(); ?>     
 
 </div>
