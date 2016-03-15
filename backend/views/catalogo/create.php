@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Catalogo */
 
-$this->title = 'Create Catalogo';
+$this->title = 'Registrar Catalogo';
 $this->params['breadcrumbs'][] = ['label' => 'Catalogos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
