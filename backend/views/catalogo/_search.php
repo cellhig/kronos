@@ -15,21 +15,12 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'buscador') ?>
 
-    <?= $form->field($model, 'nombre_catalogo') ?>
-
-    <?= $form->field($model, 'descripcion') ?>
-
-    <?= $form->field($model, 'fecha_inicio') ?>
-
-    <?= $form->field($model, 'fecha_finalizacion') ?>
-
-    <?php // echo $form->field($model, 'estado') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Buscar', ['class' => 'btn btn-primary']) ?>
+        <!--<?= Html::resetButton('Limpiar', ['class' => 'btn btn-default']) ?>-->
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -15,11 +15,14 @@ class CatalogoSearch extends Catalogo
     /**
      * @inheritdoc
      */
+
+    public $buscador;
+
     public function rules()
     {
         return [
             [['id'], 'integer'],
-            [['nombre_catalogo', 'descripcion', 'fecha_inicio', 'fecha_finalizacion', 'estado'], 'safe'],
+            [['nombre_catalogo', 'descripcion', 'fecha_inicio', 'fecha_finalizacion', 'estado', 'buscador'], 'safe'],
         ];
     }
 
@@ -55,15 +58,21 @@ class CatalogoSearch extends Catalogo
             return $dataProvider;
         }
 
-        $query->andFilterWhere([
+        /*$query->andFilterWhere([
             'id' => $this->id,
-            'fecha_inicio' => $this->fecha_inicio,
-            'fecha_finalizacion' => $this->fecha_finalizacion,
-        ]);
+            //'fecha_inicio' => $this->fecha_inicio,
+            //'fecha_finalizacion' => $this->fecha_finalizacion,
+        ]);*/
 
-        $query->andFilterWhere(['like', 'nombre_catalogo', $this->nombre_catalogo])
-            ->andFilterWhere(['like', 'descripcion', $this->descripcion])
-            ->andFilterWhere(['like', 'estado', $this->estado]);
+        /*
+        ## buscador global con parametros orFilter en vez de andFilter.
+        */
+        $query->orFilterWhere(['like', 'id', $this->buscador])
+              ->orFilterWhere(['like', 'nombre_catalogo', $this->buscador])
+              ->orFilterWhere(['like', 'descripcion', $this->buscador])
+              ->orFilterWhere(['like', 'estado', $this->buscador])
+              ->orFilterWhere(['like', 'fecha_inicio', $this->buscador])
+              ->orFilterWhere(['like', 'fecha_finalizacion', $this->buscador]);
 
         return $dataProvider;
     }

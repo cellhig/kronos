@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="catalogo-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Registrar Catalogo', ['create'], ['class' => 'btn btn-success']) ?>
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
     'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
     'columnSelectorOptions'=>[
         'label' => 'Columnas'],
-    'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+    'hiddenColumns'=>[0, 9], // SerialColumn, Color, & ActionColumn
     'disabledColumns'=>[0,0], // ID & Name
     'noExportColumns'=>[6], // Status
     'dropdownOptions' => [
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'nombre_catalogo',
             'descripcion',
             'fecha_inicio',

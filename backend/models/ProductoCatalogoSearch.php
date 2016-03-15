@@ -15,10 +15,14 @@ class ProductoCatalogoSearch extends ProductoCatalogo
     /**
      * @inheritdoc
      */
+
+    public $buscador;
+
     public function rules()
     {
         return [
-            [['id', 'producto_id', 'catalogo_id'], 'integer'],
+            [['id'], 'integer'],
+            [['producto_id', 'catalogo_id', 'buscador'], 'safe'],
         ];
     }
 
@@ -54,11 +58,22 @@ class ProductoCatalogoSearch extends ProductoCatalogo
             return $dataProvider;
         }
 
+        $query->joinWith('catalogo'); //relación con catalogo
+        $query->joinWith('producto'); //relacion con producto
+
         $query->andFilterWhere([
             'id' => $this->id,
-            'producto_id' => $this->producto_id,
-            'catalogo_id' => $this->catalogo_id,
+            //'producto_id' => $this->producto_id,
+            //'catalogo_id' => $this->catalogo_id,
         ]);
+
+        /*
+        ## el buscador global usa parametros orFilterWhere([]) en vez de andFilterWhere({}) asi puede validar cada campo de la tabla
+        */
+        $query->orFilterWhere(['like', 'catalogo.nombre_catalogo', $this->buscador])
+            ->orFilterWhere(['like', 'catalogo.fecha_inicio', $this->buscador])
+            ->orFilterWhere(['like', 'catalogo.fecha_finalizacion', $this->buscador])
+            ->orFilterWhere(['like', 'producto.nombre', $this->buscador]);
 
         return $dataProvider;
     }

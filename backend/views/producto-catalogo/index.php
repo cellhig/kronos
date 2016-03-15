@@ -10,16 +10,16 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\ProductoCatalogoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Producto Catalogos';
+$this->title = 'Productos en Catalogos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="producto-catalogo-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Producto Catalogo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Producto en Catalogo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
      <?php 

@@ -40,8 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'sede.nombre_sede',
             'cargo.nombre_cargo',
             //'estado', 
-            //'cargo.nombre_cargo',
-            'sede.nombre_sede',
             'estado',
             //'persona_id',
             //'cargo_id',
