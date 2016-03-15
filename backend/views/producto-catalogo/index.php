@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
-use yii\widget\Pjax;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ProductoCatalogoSearch */
@@ -27,8 +27,30 @@ $this->params['breadcrumbs'][] = $this->title;
          $gridColumns = [
         ['class' => 'kartik\grid\SerialColumn'],
           'id',
-            'producto_id',
-            'catalogo_id',
+            [
+                'attribute' => 'catalogo_id',
+                'value' => 'catalogo.nombre_catalogo',
+                'label' => 'Catalogo',
+            ],
+            //'catalogo_id',
+            [
+                'attribute' => 'catalogo_id',
+                'value' => 'catalogo.fecha_inicio',
+                'label' => 'fecha de Inicio',
+            ],
+            //'catalogo.fecha_inicio',
+            [
+                'attribute' => 'catalogo_id',
+                'value' => 'catalogo.fecha_finalizacion',
+                'label' => 'fecha de Finalización',
+            ],
+            //'catalogo.fecha_finalizacion',
+            [
+                'attribute' => 'producto_id',
+                'value' => 'producto.nombre',
+                'label' => 'Producto',
+            ],
+            //'producto_id',
         ];
     ?>
 
@@ -40,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
         'columnSelectorOptions'=>[
             'label' => 'Columns'],
-        'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+        'hiddenColumns'=>[0, 9], // SerialColumn, Color, & ActionColumn
         'disabledColumns'=>[0,0], // ID & Name
         'noExportColumns'=>[6], // Status
         'dropdownOptions' => [
@@ -53,13 +75,35 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'producto_id',
-            'catalogo_id',
+            //'id',            
+            [
+                'attribute' => 'catalogo_id',
+                'value' => 'catalogo.nombre_catalogo',
+                'label' => 'Catalogo',
+            ],
+            //'catalogo_id',
+            [
+                'attribute' => 'catalogo_id',
+                'value' => 'catalogo.fecha_inicio',
+                'label' => 'fecha de Inicio',
+            ],
+            //'catalogo.fecha_inicio',
+            [
+                'attribute' => 'catalogo_id',
+                'value' => 'catalogo.fecha_finalizacion',
+                'label' => 'fecha de Finalización',
+            ],
+            //'catalogo.fecha_finalizacion',
+            [
+                'attribute' => 'producto_id',
+                'value' => 'producto.nombre',
+                'label' => 'Producto',
+            ],
+            //'producto_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

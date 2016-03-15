@@ -20,7 +20,7 @@ use backend\models\CategoriaProducto;
 
     <?= $form->field($model, 'file')->fileInput(); ?><!-- para cargar archivo-->
 
-    <?= $form->field($model, 'descripcion')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'descripcion')->textarea(['maxlength' => true, 'rows' => 3]) ?>
 
         <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los tipos de documento-->
     <?= $form->field($model, 'categoria_producto_id')->widget(Select2::classname(), [
@@ -32,9 +32,9 @@ use backend\models\CategoriaProducto;
             ],
         ]); ?>
 
-    <!--<?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'categoria_producto_id')->textInput() ?> -->
+    <!--<?= $form->field($model, 'categoria_producto_id')->textInput() ?> -->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Registrar' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
