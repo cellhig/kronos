@@ -27,33 +27,36 @@ $this->params['breadcrumbs'][] = $this->title;
      $gridColumns = [
     ['class' => 'kartik\grid\SerialColumn'],
       
-                   //'id',
-                        //'id',
-            /*[
+            //'id',
+            [
+                'attribute' => 'persona_id',
+                'value' => 'persona.nombre',
+                'label' => 'Nombre',
+            ], // array para habilitar busqueda.
+            //'persona.nombre',
+            [
                 'attribute'=>'persona_id',
-                'value'=>'persona.nombre'
-            ],*/ // array para habilitar busqueda.
-            'persona.nombre',
-            /*[
-                'attribute'=>'persona_id',
-                'value'=>'persona.apellido'
-            ],*/ // array para habilitar busqueda.
-            'persona.apellido',
+                'value'=>'persona.apellido',
+                'label' => 'Apellido',
+            ], // array para habilitar busqueda.
+            //'persona.apellido',
 
-            /*[
+            [
                 'attribute'=>'persona_id',
-                'value'=>'persona.direccion'
-            ],*/ // array para habilitar busqueda.
-            'persona.direccion',
+                'value'=>'persona.direccion',
+                'label' => 'Dirección',
+            ], // array para habilitar busqueda.
+            //'persona.direccion',
 
-            /*[
+            [
                 'attribute'=>'persona_id',
-                'value'=>'persona.telefono'
-            ],*/ // array para habilitar busqueda.
+                'value'=>'persona.telefono',
+                'label' => 'Teléfono',
+            ], // array para habilitar busqueda.
 
-            'persona.municipio.nombre_municipio',
-            'persona.telefono',
-            //'correo_electronico',
+            //'persona.municipio.nombre_municipio',
+            //'persona.telefono',
+            'correo_electronico',
             //'estado',
             //'persona_id',
     ];
@@ -67,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
     'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
     'columnSelectorOptions'=>[
         'label' => 'Columnas'],
-    'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+    'hiddenColumns'=>[0, 9], // SerialColumn, Color, & ActionColumn
     'disabledColumns'=>[0,0], // ID & Name
     'noExportColumns'=>[6], // Status
     'dropdownOptions' => [
@@ -87,32 +90,35 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-                        //'id',
-            /*[
+            [
+                'attribute' => 'persona_id',
+                'value' => 'persona.nombre',
+                'label' => 'Nombre',
+            ], // array para habilitar busqueda.
+            //'persona.nombre',
+            [
                 'attribute'=>'persona_id',
-                'value'=>'persona.nombre'
-            ],*/ // array para habilitar busqueda.
-            'persona.nombre',
-            /*[
-                'attribute'=>'persona_id',
-                'value'=>'persona.apellido'
-            ],*/ // array para habilitar busqueda.
-            'persona.apellido',
+                'value'=>'persona.apellido',
+                'label' => 'Apellido',
+            ], // array para habilitar busqueda.
+            //'persona.apellido',
 
-            /*[
+            [
                 'attribute'=>'persona_id',
-                'value'=>'persona.direccion'
-            ],*/ // array para habilitar busqueda.
-            'persona.direccion',
+                'value'=>'persona.direccion',
+                'label' => 'Dirección',
+            ], // array para habilitar busqueda.
+            //'persona.direccion',
 
-            /*[
+            [
                 'attribute'=>'persona_id',
-                'value'=>'persona.telefono'
-            ],*/ // array para habilitar busqueda.
+                'value'=>'persona.telefono',
+                'label' => 'Teléfono',
+            ], // array para habilitar busqueda.
 
-            'persona.municipio.nombre_municipio',
-            'persona.telefono',
-            //'correo_electronico',
+            //'persona.municipio.nombre_municipio',
+            //'persona.telefono',
+            'correo_electronico',
             //'estado',
             //'persona_id',
 

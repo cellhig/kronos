@@ -26,10 +26,6 @@ use yii\helpers\ArrayHelper;
             ],
         ]); ?>
 
-    <!--<?= $form->field($model, 'producto_id')->textInput() ?>-->
-
-    <!--<?= $form->field($model, 'catalogo_id')->textInput() ?>-->
-    <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los tipos de documento-->
     <?= $form->field($model, 'catalogo_id')->widget(Select2::classname(), [
             'data' =>  ArrayHelper::map(Catalogo::find()->all(),'id','nombre_catalogo'),
             'language' => 'es',
@@ -40,7 +36,7 @@ use yii\helpers\ArrayHelper;
         ]); ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Registar' : 'Ediatr', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -69,39 +69,38 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            /*[
+            [
                 'attribute' => 'persona_id',
                 'value' => 'persona.nombre',
                 'label' => 'Nombre',
-            ],*/
-            'persona.nombre',
-            /*[
+            ],
+
+            [
                 'attribute' => 'persona_id',
                 'value' => 'persona.apellido',
                 'label' => 'Apellido',
-            ],*/
-            'persona.apellido',
-            /*[
+            ],
+
+            [
                 'attribute' => 'persona_id',
                 'value' => 'persona.direccion',
                 'label' => 'Direccion',
-            ],*/
-            'persona.direccion',
-            /*[
+            ],
+
+            [
                 'attribute' => 'persona_id',
                 'value' => 'persona.telefono',
                 'label' => 'Telefono',
-            ],*/
-            'persona.telefono',
+            ],
+
             //'telefono_movil',
             //'estado',
-            //'persona_id',
-            /*[
+            [
                 'attribute' => 'cargo_id',
                 'value' => 'cargo.nombre_cargo',
                 'label' => 'Cargo',
-            ],*/
-            'cargo.nombre_cargo',
+            ],
+
             // 'sede_id',
 
             ['class' => 'yii\grid\ActionColumn'],
