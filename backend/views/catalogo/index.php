@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Catalogo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Catalogo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
         <?php 
@@ -42,12 +42,12 @@ $this->params['breadcrumbs'][] = $this->title;
     'fontAwesome' => true,
     'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
     'columnSelectorOptions'=>[
-        'label' => 'Columns'],
+        'label' => 'Columnas'],
     'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
     'disabledColumns'=>[0,0], // ID & Name
     'noExportColumns'=>[6], // Status
     'dropdownOptions' => [
-        'label' => 'Export All',
+        'label' => 'Exportar A...',
         'class' => 'btn btn-default'
     ],
 ]);
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel, // se implementará bucador global.
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
