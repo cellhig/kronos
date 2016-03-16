@@ -20,11 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
      <p>
  
 <?php if (!Yii::$app->user->isGuest && $show_this_nav) {
-      echo Html::a('Update', ['update', 'id' => $model->id], 
+      echo Html::a('Editar', ['update', 'id' => $model->id], 
                              ['class' => 'btn btn-primary']);}?>
  
 <?php if (!Yii::$app->user->isGuest && $show_this_nav) {
-      echo Html::a('Delete', ['delete', 'id' => $model->id], [
+      echo Html::a('Eliminar', ['delete', 'id' => $model->id], [
          'class' => 'btn btn-danger',
          'data' => [
 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),

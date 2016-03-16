@@ -48,7 +48,7 @@ $es_User = PermisosHelpers::requerirMinimoRol('User');
  
    NavBar::begin([
  
-    'brandLabel' => 'Distrinet <i class="fa fa-cogs"></i> Admin',
+    'brandLabel' => 'Distrinet <i class="fa fa-cogs"></i>',
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
            'class' => 'navbar-inverse navbar-fixed-top',
@@ -59,7 +59,7 @@ $es_User = PermisosHelpers::requerirMinimoRol('User');
    
     NavBar::begin([
  
-      'brandLabel' => 'Distrinet<i class="fa fa-plug"></i>',
+      'brandLabel' => 'Distrinet<i class="fa fa-cogs"></i>',
       'brandUrl' => Yii::$app->homeUrl,
       'options' => [
            'class' => 'navbar-inverse navbar-fixed-top',
@@ -120,9 +120,9 @@ $es_User = PermisosHelpers::requerirMinimoRol('User');
  
         <div class="container">
  
-        <p class="pull-left">&copy; Yii 2 Build <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Distrinet <?= date('Y') ?></p>
  
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <!--<p class="pull-right"><?= Yii::powered() ?></p>-->
  
         </div>
  

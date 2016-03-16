@@ -41,10 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
          $gridColumns = [
         ['class' => 'kartik\grid\SerialColumn'],
-                'id',
-                'cantidad',
-                'control_existencia_id',
-                'producto_id',
+            'user',
+            'email:email',
+            'rolNombre',
+            'tipoUsuarioNombre',
+            'estadoNombre',
+            'created_at',
         ];
     ?>
 

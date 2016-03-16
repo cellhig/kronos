@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
  
 <div class="form-group">
-<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', 
+<?= Html::submitButton($model->isNewRecord ? 'Registrar' : 'Actualizar', 
 ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
  
