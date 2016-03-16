@@ -5,6 +5,8 @@ use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\CategoriaProductoProductoSearch */
@@ -19,8 +21,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Registar Categoria de Producto', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Registrar Categoria de Producos', ['value' =>  Url::to('index.php?r=categoria-producto/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
     </p>
+
+    <!-- inicio del modal para el formulario-->
+    <?php
+        Modal::begin([
+                'header' => '<h4>Cargos</h4>',
+                'id' => 'modal',
+                'size' => 'modal-lg',
+            ]);
+
+        echo "<div id='ModalContent'></div>";
+
+        Modal::end();
+    ?><!-- fin del modal para el formulario-->
 
     <?php 
 

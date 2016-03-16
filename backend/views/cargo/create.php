@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Cargo */
 
-$this->title = 'Create Cargo';
+$this->title = 'Registar Cargo';
 $this->params['breadcrumbs'][] = ['label' => 'Cargos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-?>
+?>	
 <div class="cargo-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
