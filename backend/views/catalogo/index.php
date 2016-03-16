@@ -5,6 +5,8 @@ use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\CatalogoSearch */
@@ -19,8 +21,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Registrar Catalogo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Registrar Catalogo', ['value' =>  Url::to('index.php?r=catalogo/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
     </p>
+
+    <!-- inicio del modal para el formulario-->
+    <?php
+        Modal::begin([
+                'header' => '<h4>Catalogos</h4>',
+                'id' => 'modal',
+                'size' => 'modal-lg',
+            ]);
+
+        echo "<div id='ModalContent'></div>";
+
+        Modal::end();
+    ?><!-- fin del modal para el formulario-->
 
         <?php 
 

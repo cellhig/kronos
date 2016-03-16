@@ -59,7 +59,7 @@ class Producto extends \yii\db\ActiveRecord
             'file' => 'Imagen del Producto',
             'descripcion' => 'Descripcion',
             'estado' => 'Estado',
-            'categoria_producto_id' => 'Categoria Producto ID',
+            'categoria_producto_id' => 'Categoria Producto',
         ];
     }
 
