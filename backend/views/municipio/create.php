@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Municipio */
 
-$this->title = 'Create Municipio';
+$this->title = 'Registrar Municipio';
 $this->params['breadcrumbs'][] = ['label' => 'Municipios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

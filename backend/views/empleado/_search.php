@@ -16,10 +16,7 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?= $form->field($model, 'buscador') ?>
-
-
-
-
+    
     <!--<?= $form->field($model, 'estado') ?>
 
     <?= $form->field($model, 'persona_id') ?>

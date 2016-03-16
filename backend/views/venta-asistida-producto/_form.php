@@ -14,11 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'observaciones')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cantidad_producto')->textInput() ?>
-
     <?= $form->field($model, 'venta_asistida_id')->textInput() ?>
 
     <?= $form->field($model, 'producto_id')->textInput() ?>
+
+    <?= $form->field($model, 'cantidad_producto')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 $this->title = 'Editar Catalogo: ' . ' ' . $model->nombre_catalogo;
 $this->params['breadcrumbs'][] = ['label' => 'Catalogos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->nombre_catalogo, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="catalogo-update">
