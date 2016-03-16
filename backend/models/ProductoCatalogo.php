@@ -42,8 +42,8 @@ class ProductoCatalogo extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'producto_id' => 'Producto ID',
-            'catalogo_id' => 'Catalogo ID',
+            'producto_id' => 'Producto',
+            'catalogo_id' => 'Catalogo',
         ];
     }
 
