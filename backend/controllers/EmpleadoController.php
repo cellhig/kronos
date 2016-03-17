@@ -88,7 +88,7 @@ class EmpleadoController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->renderAjax('create', [
+            return $this->render('create', [
                 'model' => $model,
                 'persona' => $persona,//uso el objeto persona aqui para poder guaradar los datos en la BD
             ]);

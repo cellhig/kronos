@@ -5,8 +5,6 @@ use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
-use yii\bootstrap\Modal;
-use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ProductoSearch */
@@ -20,28 +18,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::button('Registrar Producto', ['value' =>  Url::to('index.php?r=producto/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+    <p>        
+        <?= Html::a('Registrar Producto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <!-- inicio del modal para el formulario-->
     <?php
-        Modal::begin([
-                'header' => '<h4>Productos</h4>',
-                'id' => 'modal',
-                'size' => 'modal-lg',
-            ]);
-
-        echo "<div id='ModalContent'></div>";
-
-        Modal::end();
-    ?><!-- fin del modal para el formulario-->
-
-    <?php 
-
-         $gridColumns = [
+        $gridColumns = [
         ['class' => 'kartik\grid\SerialColumn'],
-                 'id',
+            'id',
             'codigo_producto',
             'nombre',
             'descripcion',
@@ -50,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ];
     ?>
 
-          <?php
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -64,11 +48,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Exportar A...',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
-
-    
+            ],
+        ]);
+   ?>    
 
     <?php Pjax::begin(); ?>       
     <?= GridView::widget([
@@ -76,7 +58,6 @@ $this->params['breadcrumbs'][] = $this->title;
         //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             //'id',
             'codigo_producto',
             'nombre',
@@ -87,7 +68,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
     <?php Pjax::end(); ?>
-
 </div>

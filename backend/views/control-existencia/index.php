@@ -5,9 +5,6 @@ use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
-use yii\bootstrap\Modal;
-use yii\helpers\Url;
-
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ControlExistenciaSearch */
@@ -22,54 +19,36 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::button('Registrar Cliente', ['value' =>  Url::to('index.php?r=control-existencia/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+        <?= Html::a('Registrar Control de Existencia', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
-    <!-- inicio del modal para el formulario-->
-    <?php
-        Modal::begin([
-                'header' => '<h4>Clientes</h4>',
-                'id' => 'modal',
-                'size' => 'modal-lg',
-            ]);
-
-        echo "<div id='ModalContent'></div>";
-
-        Modal::end();
-    ?><!-- fin del modal para el formulario-->
-
-
     
-    <?php 
-
-     $gridColumns = [
-    ['class' => 'kartik\grid\SerialColumn'],
-      
+    <?php
+        $gridColumns = [
+            ['class' => 'kartik\grid\SerialColumn'],              
             'id',
             'observaciones',
             'fecha',
             'sede.nombre_sede',
+        ];
+    ?>
 
-    ];
-?>
-
-      <?php
-    echo ExportMenu::widget([
-    'dataProvider' => $dataProvider,
-    'columns' => $gridColumns,
-    'fontAwesome' => true,
-    'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
-    'columnSelectorOptions'=>[
-        'label' => 'Columnas'],
-    'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
-    'disabledColumns'=>[0,0], // ID & Name
-    'noExportColumns'=>[6], // Status
-    'dropdownOptions' => [
-        'label' => 'Exportar A...',
-        'class' => 'btn btn-default'
-    ],
-]);
-       ?>
+    <?php
+        echo ExportMenu::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => $gridColumns,
+        'fontAwesome' => true,
+        'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
+        'columnSelectorOptions'=>[
+            'label' => 'Columnas'],
+        'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+        'disabledColumns'=>[0,0], // ID & Name
+        'noExportColumns'=>[6], // Status
+        'dropdownOptions' => [
+            'label' => 'Exportar A...',
+            'class' => 'btn btn-default'
+            ],
+        ]);
+   ?>
 
     
     <?php Pjax::begin(); ?> 

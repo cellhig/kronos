@@ -24,7 +24,7 @@ $es_admin = PermisosHelpers::requerirMinimoRol('Admin');
 
     <?php $form = ActiveForm::begin(); ?>
 
-        <!-- Inicia el fromulario  de persona -->
+    <!-- Inicia el fromulario  de persona -->
 
     <?= $form->field($persona, 'nombre')->textInput(['maxlength' => true]) ?>
 
@@ -32,11 +32,10 @@ $es_admin = PermisosHelpers::requerirMinimoRol('Admin');
 
     <?= $form->field($persona, 'identificacion')->textInput(['maxlength' => true]) ?>
 
-
     <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los tipos de documento-->
     <?= $form->field($persona, 'tipo_identificacion_id')->widget(Select2::classname(), [
             'data' =>  ArrayHelper::map(TipoIdentificacion::find()->all(),'id','nombre_tipo_identificacion'),
-            'language' => 'en',
+            'language' => 'es',
             'options' => ['placeholder' => 'Seleccione uno'],
             'pluginOptions' => [
                 'allowClear' => true
@@ -45,8 +44,8 @@ $es_admin = PermisosHelpers::requerirMinimoRol('Admin');
 
     <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los municipios-->
     <?= $form->field($persona, 'municipio_id')->widget(Select2::classname(), [
-            'data' =>  ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio'),
-            'language' => 'en',
+            'data' =>  ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio', 'departamento.nombre_departamento'), 
+            'language' => 'es',
             'options' => ['placeholder' => 'Seleccione uno'],
             'pluginOptions' => [
                 'allowClear' => true
@@ -57,17 +56,13 @@ $es_admin = PermisosHelpers::requerirMinimoRol('Admin');
 
     <?= $form->field($persona, 'telefono')->textInput(['maxlength' => true]) ?>
 
-
     <!-- finaliza el fromulario  de persona -->
 
     <?= $form->field($model, 'correo_electronico')->textInput(['maxlength' => true]) ?>
 
-<?php if (!Yii::$app->user->isGuest && $es_admin): ?>
-    <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => 'Seleccione uno']) ?>
-<?php endif ?>
-    
-
-    <!--<?= $form->field($model, 'persona_id')->textInput() ?>-->
+    <?php if (!Yii::$app->user->isGuest && $es_admin): ?>
+        <?= $form->field($model, 'estado')->dropDownList([ 'Activo' => 'Activo', 'Inactivo' => 'Inactivo', ], ['prompt' => 'Seleccione uno']) ?>
+    <?php endif ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Registrar' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

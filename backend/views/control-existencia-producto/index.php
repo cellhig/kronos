@@ -5,8 +5,6 @@ use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
-use yii\bootstrap\Modal;
-use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ControlExistenciaProductoSearch */
@@ -21,50 +19,36 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::button('Registrar Existencia de Producto', ['value' =>  Url::to('index.php?r=control-existencia-producto/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+        <?= Html::a('Registrar Existencia de Producto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <!-- inicio del modal para el formulario-->
     <?php
-        Modal::begin([
-                'header' => '<h4>Existencias</h4>',
-                'id' => 'modal',
-                'size' => 'modal-lg',
-            ]);
+        $gridColumns = [
+        ['class' => 'kartik\grid\SerialColumn'],
+        'id',
+        'cantidad',
+        'control_existencia_id',
+        'producto_id',
+        ];
+    ?>
 
-        echo "<div id='ModalContent'></div>";
-
-        Modal::end();
-    ?><!-- fin del modal para el formulario-->    
-
-     <?php 
-
-     $gridColumns = [
-    ['class' => 'kartik\grid\SerialColumn'],
-            'id',
-            'cantidad',
-            'control_existencia_id',
-            'producto_id',
-    ];
-?>
-
-      <?php
-    echo ExportMenu::widget([
-    'dataProvider' => $dataProvider,
-    'columns' => $gridColumns,
-    'fontAwesome' => true,
-    'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
-    'columnSelectorOptions'=>[
-        'label' => 'Columnas'],
-    'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
-    'disabledColumns'=>[0,0], // ID & Name
-    'noExportColumns'=>[6], // Status
-    'dropdownOptions' => [
-        'label' => 'Exportar A...',
-        'class' => 'btn btn-default'
-    ],
-]);
-       ?>
+    <?php
+        echo ExportMenu::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => $gridColumns,
+        'fontAwesome' => true,
+        'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
+        'columnSelectorOptions'=>[
+            'label' => 'Columnas'],
+        'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+        'disabledColumns'=>[0,0], // ID & Name
+        'noExportColumns'=>[6], // Status
+        'dropdownOptions' => [
+            'label' => 'Exportar A...',
+            'class' => 'btn btn-default'
+            ],
+        ]);
+   ?>
 
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([

@@ -2,7 +2,6 @@
  
 use yii\helpers\Html;
 use yii\grid\GridView;
-use \yii\bootstrap\Collapse;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
@@ -18,39 +17,37 @@ $this->params['breadcrumbs'][] = $this->title;
  
     <h1><?= Html::encode($this->title) ?></h1>
     
-    
-    
-    <?php   echo Collapse::widget([
-                        
-             'items' => [
-             // equivalent to the above
-             [
-             'label' => 'Search',
-             'content' => $this->render('_search', ['model' => $searchModel]) ,
-             // open its content by default
-             //'contentOptions' => ['class' => 'in']
-              ],
-                            
-              ] 
-              ]); ?> 
+  <?php
+    echo Collapse::widget([                        
+     'items' => [
+     // equivalent to the above
+     [
+     'label' => 'Search',
+     'content' => $this->render('_search', ['model' => $searchModel]) ,
+     // open its content by default
+     //'contentOptions' => ['class' => 'in']
+      ],
+                    
+      ] 
+    ]); 
+  ?> 
  
   
-  <?php 
+  <?php
+    $gridColumns = [
+    ['class' => 'kartik\grid\SerialColumn'],
+        //'id',
+        'perfilIdLink',
+        'userLink',
+        'nombre',
+        'apellido',
+        'fecha_nacimiento',
+        'generoNombre',
+    ];
+  ?>
 
-         $gridColumns = [
-        ['class' => 'kartik\grid\SerialColumn'],
-       //'id',
-            'perfilIdLink',
-            'userLink',
-            'nombre',
-            'apellido',
-            'fecha_nacimiento',
-            'generoNombre',
-        ];
-    ?>
-
-          <?php
-        echo ExportMenu::widget([
+  <?php
+    echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
         'fontAwesome' => true,
@@ -65,31 +62,29 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => 'btn btn-default'
         ],
     ]);
-           ?>
+ ?>
 
 
-    <?php Pjax::begin(); ?> 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
- 
-            //'id',
-            ['attribute'=>'perfilIdLink', 'format'=>'raw'],
-            ['attribute'=>'userLink', 'format'=>'raw'],
-            'nombre',
-            'apellido',
-            'fecha_nacimiento',
-            'generoNombre',
-            ['class' => 'yii\grid\ActionColumn'],
-             
-            // 'created_at',
-            // 'updated_at',
-            // 'user_id',
- 
-            
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>  
+  <?php Pjax::begin(); ?> 
+  <?= GridView::widget([
+      'dataProvider' => $dataProvider,
+      'filterModel' => $searchModel,
+      'columns' => [
+          ['class' => 'yii\grid\SerialColumn'],
+
+          //'id',
+          ['attribute'=>'perfilIdLink', 'format'=>'raw'],
+          ['attribute'=>'userLink', 'format'=>'raw'],
+          'nombre',
+          'apellido',
+          'fecha_nacimiento',
+          'generoNombre',
+          ['class' => 'yii\grid\ActionColumn'],
+           
+          // 'created_at',
+          // 'updated_at',
+          // 'user_id',          
+      ],
+  ]); ?>
+  <?php Pjax::end(); ?>  
 </div>

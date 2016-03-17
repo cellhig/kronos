@@ -20,36 +20,35 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Municipio', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Municipio', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php 
+    <?php
+        $gridColumns = [
+            ['class' => 'kartik\grid\SerialColumn'],
+            'id',
+            'nombre_municipio',
+            'departamento_id',
+        ];
+    ?>
 
-     $gridColumns = [
-    ['class' => 'kartik\grid\SerialColumn'],
-    'id',
-    'nombre_municipio',
-    'departamento_id',
-    ];
-?>
-
-      <?php
-    echo ExportMenu::widget([
-    'dataProvider' => $dataProvider,
-    'columns' => $gridColumns,
-    'fontAwesome' => true,
-    'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
-    'columnSelectorOptions'=>[
-        'label' => 'Columns'],
-    'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
-    'disabledColumns'=>[0,0], // ID & Name
-    'noExportColumns'=>[6], // Status
-    'dropdownOptions' => [
-        'label' => 'Export All',
-        'class' => 'btn btn-default'
-    ],
-]);
-       ?>
+    <?php
+        echo ExportMenu::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => $gridColumns,
+        'fontAwesome' => true,
+        'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
+        'columnSelectorOptions'=>[
+            'label' => 'Columnas'],
+        'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+        'disabledColumns'=>[0,0], // ID & Name
+        'noExportColumns'=>[6], // Status
+        'dropdownOptions' => [
+            'label' => 'Exportar A...',
+            'class' => 'btn btn-default'
+            ],
+        ]);
+    ?>
 
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([
@@ -60,10 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'nombre_municipio',
             'departamento_id',
-          ['class' => 'yii\grid\ActionColumn'],
-      ],
-
+            ['class' => 'yii\grid\ActionColumn'],
+            ],
         ]);
-     ?>
+    ?>
     <?php Pjax::end(); ?>       
 </div>

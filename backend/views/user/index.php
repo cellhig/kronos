@@ -20,37 +20,33 @@ $this->params['breadcrumbs'][] = $this->title;
  
     <h1><?= Html::encode($this->title) ?></h1>
  
-<?php   echo Collapse::widget([
- 
-     
-   'items' => [
-        // equivalente a lo de arriba
-        [
-            'label' => 'Search',
-            'content' => $this->render('_search', ['model' => $searchModel]) ,
-            // open its content by default
-            //'contentOptions' => ['class' => 'in']
-        ],
-        
-   ] 
-]);
-  
-   
-?>
-    <?php 
-
-         $gridColumns = [
-        ['class' => 'kartik\grid\SerialColumn'],
-            'user',
-            'email:email',
-            'rolNombre',
-            'tipoUsuarioNombre',
-            'estadoNombre',
-            'created_at',
-        ];
+    <?php   
+        echo Collapse::widget([         
+            'items' => [
+            // equivalente a lo de arriba
+            [
+                'label' => 'Search',
+                'content' => $this->render('_search', ['model' => $searchModel]) ,
+                // open its content by default
+                //'contentOptions' => ['class' => 'in']
+            ],            
+            ] 
+        ]);
     ?>
 
-          <?php
+    <?php
+        $gridColumns = [
+            ['class' => 'kartik\grid\SerialColumn'],
+                'user',
+                'email:email',
+                'rolNombre',
+                'tipoUsuarioNombre',
+                'estadoNombre',
+                'created_at',
+            ];
+    ?>
+
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -64,17 +60,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Export All',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
+            ],
+        ]);
+    ?>
 
     <?php Pjax::begin(); ?>  
-   <?= GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
- 
+            ['class' => 'yii\grid\SerialColumn'], 
             //'id',
             ['attribute'=>'userIdLink', 'format'=>'raw'],
             ['attribute'=>'userLink', 'format'=>'raw'],
@@ -86,14 +81,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'estadoNombre',
             'created_at',
           
-           ['class' => 'yii\grid\ActionColumn'],
-           
-            
-            // 'updated_at',
- 
-            
-        ],
-    ]); ?>
+            ['class' => 'yii\grid\ActionColumn'],  
+            ],
+        ]); ?>
     <?php Pjax::end(); ?> 
  
 </div>
