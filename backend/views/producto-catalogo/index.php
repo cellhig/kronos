@@ -5,8 +5,6 @@ use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
-use yii\bootstrap\Modal;
-use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ProductoCatalogoSearch */
@@ -21,27 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::button('Registrar Producto en Catalogo', ['value' =>  Url::to('index.php?r=producto-catalogo/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+        <?= Html::a('Registrar Producto en Catalogo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <!-- inicio del modal para el formulario-->
     <?php
-        Modal::begin([
-                'header' => '<h4>Producto en Catalogo</h4>',
-                'id' => 'modal',
-                'size' => 'modal-lg',
-            ]);
-
-        echo "<div id='ModalContent'></div>";
-
-        Modal::end();
-    ?><!-- fin del modal para el formulario-->
-
-     <?php 
-
-         $gridColumns = [
+        $gridColumns = [
         ['class' => 'kartik\grid\SerialColumn'],
-          'id',
+            'id',
             [
                 'attribute' => 'catalogo_id',
                 'value' => 'catalogo.nombre_catalogo',
@@ -69,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ];
     ?>
 
-          <?php
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -83,9 +67,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Export All',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
+            ],
+        ]);
+   ?>
 
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([

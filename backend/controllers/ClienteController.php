@@ -86,7 +86,7 @@ class ClienteController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
 
         } else {
-            return $this->renderAjax('create', [
+            return $this->render('create', [
                 'model' => $model,
                 'persona' => $persona,
             ]);

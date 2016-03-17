@@ -19,14 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Sede', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Sede', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-     <?php 
-
-         $gridColumns = [
+    <?php
+        $gridColumns = [
         ['class' => 'kartik\grid\SerialColumn'],
-                       'id',
+            'id',
             'nombre_sede',
             'direccion',
             'telefono',
@@ -34,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ];
     ?>
 
-          <?php
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -48,10 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Export All',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
-
+            ],
+        ]);
+    ?>
 
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([
@@ -59,7 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'nombre_sede',
             'direccion',

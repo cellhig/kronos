@@ -22,16 +22,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Estado Venta Asistida', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
- <?php 
-
-         $gridColumns = [
+    <?php
+        $gridColumns = [
         ['class' => 'kartik\grid\SerialColumn'],
-                    'id',
+            'id',
             'nombre_estado_venta_asistida',
         ];
     ?>
 
-          <?php
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -45,9 +44,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Export All',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
+            ],
+        ]);
+    ?>
 
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([

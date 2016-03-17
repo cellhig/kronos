@@ -31,7 +31,7 @@ use kartik\select2\Select2;
     <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los tipos de documento-->
     <?= $form->field($persona, 'tipo_identificacion_id')->widget(Select2::classname(), [
             'data' =>  ArrayHelper::map(TipoIdentificacion::find()->all(),'id','nombre_tipo_identificacion'),
-            'language' => 'en',
+            'language' => 'es',
             'options' => ['placeholder' => 'Seleccione uno'],
             'pluginOptions' => [
                 'allowClear' => true
@@ -40,8 +40,8 @@ use kartik\select2\Select2;
 
     <!-- uso del widget de kartik-v (select2) para failitar la busqueda de los municipios-->
     <?= $form->field($persona, 'municipio_id')->widget(Select2::classname(), [
-            'data' => ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio'),
-            'language' => 'en',
+            'data' => ArrayHelper::map(Municipio::find()->all(),'id','nombre_municipio', 'departamento.nombre_departamento'), 
+            'language' => 'es',
             'options' => ['placeholder' => 'Seleccione uno'],
             'pluginOptions' => [
                 'allowClear' => true

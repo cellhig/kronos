@@ -22,19 +22,18 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Venta Asistida Producto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-     <?php 
-
-         $gridColumns = [
-        ['class' => 'kartik\grid\SerialColumn'],
-                 'id',
+    <?php
+        $gridColumns = [
+            ['class' => 'kartik\grid\SerialColumn'],
+            'id',
             'observaciones',
             'cantidad_producto',
             'venta_asistida_id',
             'producto_id',
-        ];
+            ];
     ?>
 
-          <?php
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -48,9 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Export All',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
+            ],
+        ]);
+    ?>
 
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([
@@ -58,7 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'observaciones',
             'cantidad_producto',
@@ -66,8 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'producto_id',
 
             ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?> 
-
+            ],
+        ]); ?>
+    <?php Pjax::end(); ?>
 </div>

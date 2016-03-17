@@ -5,11 +5,6 @@ use yii\grid\GridView;
 use kartik\export\ExportMenu;
 use arturoliveira\ExcelView;
 use yii\widgets\Pjax;
-use yii\bootstrap\Modal;
-use yii\helpers\Url;
-
-
-
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\EmpleadoSearch */
@@ -24,26 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::button('Registrar Empleado', ['value' =>  Url::to('index.php?r=empleado/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+        <?= Html::a('Registrar Empleado', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <!-- inicio del modal para el formulario-->
-    <?php
-        Modal::begin([
-                'header' => '<h4>Empleados</h4>',
-                'id' => 'modal',
-                'size' => 'modal-lg',
-            ]);
-
-        echo "<div id='ModalContent'></div>";
-
-        Modal::end();
-    ?><!-- fin del modal para el formulario-->
-
-     <?php 
-
-         $gridColumns = [
-        ['class' => 'kartik\grid\SerialColumn'],
+    <?php 
+        $gridColumns = [
+            ['class' => 'kartik\grid\SerialColumn'],
             //'id',
             'persona.nombre',
             'persona.apellido',
@@ -71,9 +52,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Exportar A..',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
+            ],
+        ]);
+   ?>
 
 
      <?php Pjax::begin(); ?>      
