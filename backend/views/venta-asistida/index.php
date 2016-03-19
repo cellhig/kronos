@@ -18,21 +18,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Venta Asistida', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registar Venta Asistida', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-     <?php 
-
-         $gridColumns = [
+    <?php
+        $gridColumns = [
         ['class' => 'kartik\grid\SerialColumn'],
-                'id',
+            'id',
             'fecha_solicitud',
             'estado_venta_asistida_id',
             'cliente_id',   
         ];
     ?>
 
-          <?php
+    <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
         'columns' => $gridColumns,
@@ -46,12 +45,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dropdownOptions' => [
             'label' => 'Export All',
             'class' => 'btn btn-default'
-        ],
-    ]);
-           ?>
-
-
-
+            ],
+        ]);
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -65,7 +61,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'cliente_id',
 
             ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+            ],
+        ]); ?>
 </div>
