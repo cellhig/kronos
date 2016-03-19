@@ -18,6 +18,7 @@ $this->title = 'DISTRIHERRAMIENTAS';
 
     <div class="body-content WIDTH="160" HEIGHT="32"">
 
+
         <!--<div class="row">
             <div class="col-lg-4">
                 <h2>Heading</h2>
