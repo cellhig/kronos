@@ -35,13 +35,17 @@ class Persona extends \yii\db\ActiveRecord
      * @inheritdoc
      */
     public function rules()
-    {
+    { // permisos
         return [
             [['municipio_id', 'tipo_identificacion_id'], 'required'],
             [['municipio_id', 'tipo_identificacion_id'], 'integer'],
-            [['nombre', 'apellido', 'direccion'], 'string', 'max' => 60],
-            [['identificacion'], 'string', 'max' => 20],
-            [['telefono'], 'string', 'max' => 15]
+            [['nombre', 'apellido'], 'string', 'length' => [3, 30]],
+            ['nombre','match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
+            ['apellido', 'match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
+            [['direccion'], 'string', 'length' => [8, 255]],
+            ['identificacion','match', 'pattern'=> '/^[0-9]{7,20}$/'],
+            ['telefono', 'match', 'pattern'=> '/^[0-9]{7,10}$/'],
+       
         ];
     }
 

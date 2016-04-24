@@ -30,7 +30,8 @@ class TipoUsuario extends \yii\db\ActiveRecord
         return [
             [['tipo_usuario_nombre', 'tipo_usuario_valor'], 'required'],
             [['tipo_usuario_valor'], 'integer'],
-            [['tipo_usuario_nombre'], 'string', 'max' => 45]
+            [['tipo_usuario_nombre'], 'string', 'max' => 45],
+            [['tipo_usuario_nombre'],'match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
         ];
     }
 

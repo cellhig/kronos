@@ -29,7 +29,8 @@ class TipoIdentificacion extends \yii\db\ActiveRecord
     {
         return [
             [['nombre_tipo_identificacion'], 'required'],
-            [['nombre_tipo_identificacion'], 'string', 'max' => 30]
+            [['nombre_tipo_identificacion'], 'string', 'max' => 30],
+            [['nombre_tipo_identificacion'], 'match', 'pattern'=> '/^[\*a-zA-Z” “]{2,20}$/'],
         ];
     }
 

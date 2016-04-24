@@ -28,7 +28,7 @@ class Cargo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_cargo'], 'string', 'max' => 45]
+            [['nombre_cargo'], 'number', 'max' => 20]
         ];
     }
 

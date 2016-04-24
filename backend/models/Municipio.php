@@ -33,7 +33,9 @@ class Municipio extends \yii\db\ActiveRecord
         return [
             [['departamento_id'], 'required'],
             [['departamento_id'], 'integer'],
-            [['nombre_municipio'], 'string', 'max' => 25]
+            [['nombre_municipio'], 'string', 'max' => 20],
+            ['nombre_municipio', 'match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
+    
         ];
     }
 

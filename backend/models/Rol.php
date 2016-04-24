@@ -30,7 +30,8 @@ class Rol extends \yii\db\ActiveRecord
         return [
             [['rol_nombre', 'rol_valor'], 'required'],
             [['rol_valor'], 'integer'],
-            [['rol_nombre'], 'string', 'max' => 45]
+            [['rol_nombre'], 'string', 'max' => 45],
+            [['rol_nombre'],'match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
         ];
     }
 

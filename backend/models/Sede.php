@@ -36,8 +36,9 @@ class Sede extends \yii\db\ActiveRecord
             [['municipio_id'], 'required'],
             [['municipio_id'], 'integer'],
             [['nombre_sede'], 'string', 'max' => 45],
-            [['direccion'], 'string', 'max' => 255],
-            [['telefono'], 'string', 'max' => 15]
+            [['nombre_sede'],'match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
+            [['direccion'], 'string', 'max' => 255],  
+            [['telefono'], 'match', 'pattern'=> '/^[0-9]{8,13}$/'],
         ];
     }
 
