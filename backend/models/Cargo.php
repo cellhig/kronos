@@ -28,7 +28,8 @@ class Cargo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_cargo'], 'number', 'max' => 20]
+            [['nombre_cargo'], 'string', 'length' => [5, 30]],
+            [['nombre_cargo'], 'match', 'pattern' => '/^[\*a-zA-Z” “]{5,30}$/']
         ];
     }
 

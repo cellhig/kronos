@@ -40,8 +40,9 @@ class Producto extends \yii\db\ActiveRecord
             [['estado'], 'string'],
             [['categoria_producto_id'], 'required'],
             [['categoria_producto_id'], 'integer'],
-            [['codigo_producto'], 'string', 'max' => 10],
-            [['nombre'], 'string', 'max' => 50],
+            [['codigo_producto'], 'string', 'length' => [3,10]],
+            [['nombre'], 'string', 'length' => [3,50]],
+            ['nombre','match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
             [['file'], 'file'],
             [['descripcion', 'imagen'], 'string', 'max' => 255]
         ];

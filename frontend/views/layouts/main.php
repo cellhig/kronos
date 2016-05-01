@@ -78,7 +78,7 @@ PagAsset::register($this);
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="login.html"><i class="fa fa-user"></i> Distrinet</a></li>
+                                <li><a  href="http://backend.dev:90/"><i class="fa fa-user"></i> Distrinet</a></li>
                                 <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
                             </ul>
                         </div>

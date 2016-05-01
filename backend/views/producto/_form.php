@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
+use kartik\widgets\FileInput;
 use backend\models\CategoriaProducto;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Producto */
@@ -18,7 +19,9 @@ use backend\models\CategoriaProducto;
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'file')->fileInput(); ?><!-- para cargar archivo-->
+    <?= $form->field($model, 'file')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'image/*'],
+    ]); ?> 
 
     <?= $form->field($model, 'descripcion')->textarea(['maxlength' => true, 'rows' => 3]) ?>
 

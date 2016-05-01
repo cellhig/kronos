@@ -28,7 +28,8 @@ class Departamento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_departamento'], 'string', 'max' => 25]
+            [['nombre_departamento'], 'string', 'length' => [5,25]],
+            [['nombre_departamento'], 'match', 'pattern' => '/^[\*a-zA-Z” “]{5,30}$/']
         ];
     }
 

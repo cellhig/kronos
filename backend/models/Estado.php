@@ -30,7 +30,8 @@ class Estado extends \yii\db\ActiveRecord
         return [
             [['estado_nombre', 'estado_valor'], 'required'],
             [['estado_valor'], 'integer'],
-            [['estado_nombre'], 'string', 'max' => 45]
+            [['estado_nombre'], 'string', 'max' => 45],
+            ['estado_nombre', 'match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
         ];
     }
 
