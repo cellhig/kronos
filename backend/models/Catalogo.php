@@ -32,10 +32,11 @@ class Catalogo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre_catalogo'], 'required'],
+            [['nombre_catalogo','fecha_inicio', 'fecha_finalizacion'], 'required'],
             [['fecha_inicio', 'fecha_finalizacion'], 'safe'],
             [['estado'], 'string'],
-            [['nombre_catalogo'], 'string', 'max' => 45],
+            [['nombre_catalogo'], 'string', 'length' => [8, 45]],
+            [['nombre_catalogo'], 'match', 'pattern' => '/^[\*a-zA-Z” “]{8,45}$/'],
             [['descripcion'], 'string', 'max' => 140]
         ];
     }

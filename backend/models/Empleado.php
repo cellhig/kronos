@@ -37,7 +37,8 @@ class Empleado extends \yii\db\ActiveRecord
             [['estado'], 'string'],
             [['persona_id', 'cargo_id', 'sede_id'], 'required'],
             [['persona_id', 'cargo_id', 'sede_id'], 'integer'],
-            [['telefono_movil'], 'string', 'max' => 15]
+            [['telefono_movil'], 'string', 'max' => 10],
+            ['telefono_movil','match', 'pattern'=> '/^[0-9]{10}$/'],
         ];
     }
 

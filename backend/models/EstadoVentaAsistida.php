@@ -29,7 +29,8 @@ class EstadoVentaAsistida extends \yii\db\ActiveRecord
     {
         return [
             [['nombre_estado_venta_asistida'], 'required'],
-            [['nombre_estado_venta_asistida'], 'string', 'max' => 25]
+            [['nombre_estado_venta_asistida'], 'string', 'max' => 25],
+            ['nombre_estado_venta_asistida', 'match', 'pattern' => '/^[\*a-zA-Z” “]*$/i'],
         ];
     }
 

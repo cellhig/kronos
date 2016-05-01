@@ -23,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::button('volver', ['value' =>  Url::to('index.php?r=cliente'), 'class' => 'btn btn-default', 'id' => 'backButton']) ?>
     </p>
 
     <?= DetailView::widget([

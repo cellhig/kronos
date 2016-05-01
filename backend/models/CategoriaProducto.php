@@ -30,8 +30,10 @@ class CategoriaProducto extends \yii\db\ActiveRecord
     {
         return [
             [['codigo_categoria'], 'required'],
-            [['codigo_categoria'], 'string', 'max' => 15],
-            [['nombre_categoria'], 'string', 'max' => 25]
+            [['codigo_categoria'], 'string', 'length' => [2, 15]],
+            [['nombre_categoria'], 'string', 'length' => [7, 25]],
+            [['codigo_categoria'], 'match', 'pattern' => '/^[\*a-zA-Z” “]{2,15}$/'],
+            [['nombre_categoria'], 'match', 'pattern' => '/^[\*a-zA-Z” “]{7,25}$/']
         ];
     }
 

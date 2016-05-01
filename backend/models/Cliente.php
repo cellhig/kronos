@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\base\Model;
 
 /**
  * This is the model class for table "cliente".
@@ -34,8 +35,10 @@ class Cliente extends \yii\db\ActiveRecord
             [['correo_electronico', 'persona_id'], 'required'],
             [['estado'], 'string'],
             [['persona_id'], 'integer'],
-            [['correo_electronico'], 'string', 'max' => 255],
-            [['correo_electronico'], 'unique']
+                //[['correo_electronico'], 'string', 'max' => 255],
+            [['correo_electronico'], 'unique'],
+            ['correo_electronico', 'filter', 'filter' => 'trim'],
+            [['correo_electronico'], 'email'],
         ];
     }
 

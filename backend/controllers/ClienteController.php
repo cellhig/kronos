@@ -63,23 +63,23 @@ class ClienteController extends Controller
     public function actionCreate()
     {
         $model = new Cliente();
-        $persona = new Persona();
+        $persona = new Persona();//objeto del modelo persona
 
         if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
 
-            $persona->nombre = $persona->nombre;
-            $persona->apellido = $persona->apellido;
-            $persona->identificacion = $persona->identificacion;
-            $persona->tipo_identificacion_id = $persona->tipo_identificacion_id;
-            $persona->municipio_id = $persona->municipio_id;
-            $persona->direccion = $persona->direccion;
-            $persona->telefono = $persona->telefono;
+            $persona->nombre;
+            $persona->apellido;
+            $persona->identificacion;
+            $persona->tipo_identificacion_id;
+            $persona->municipio_id;
+            $persona->direccion;
+            $persona->telefono;
 
             $persona->save();
 
-            $model->correo_electronico = $model->correo_electronico;
-            $model->estado = $model->estado;
-            $model->persona_id = $persona->id;
+            $model->correo_electronico;
+            $model->estado;
+            $model->persona_id  = $persona->id;
 
             $model->save();
 
@@ -88,7 +88,7 @@ class ClienteController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'persona' => $persona,
+                'persona' => $persona,//uso el objeto persona aqui para poder guaradar los datos en la BD
             ]);
         }
     }
