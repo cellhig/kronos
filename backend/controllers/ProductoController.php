@@ -91,7 +91,18 @@ class ProductoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $isValid = $model->validate();
+            if ($isValid) {
+                $nombreImagen =$model->codigo_producto;//nombre que le voy a dar a la imagen
+                $model->file = UploadedFile::getInstance($model, 'file');// creo una instancia de la imagen
+                $model->file->saveAs('imgProductos/'.$nombreImagen.'.'.$model->file->extension);//guardo la imagen con el nombre y la ruta en la app
+                $model->imagen = 'imgProductos/'.$nombreImagen.'.'.$model->file->extension;//guardo la ruta de la imagen en la BD
+                $model->save(false);
+                return $this->redirect(['producto/view', 'id'=>$id]);
+            }
+
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

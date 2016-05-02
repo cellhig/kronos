@@ -20,7 +20,8 @@ use backend\models\CategoriaProducto;
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'file')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
+        'options' => ['multiple' => false, 'accept' => 'image/*'],
+        'pluginOptions' => ['previewFileType' => 'file']
     ]); ?> 
 
     <?= $form->field($model, 'descripcion')->textarea(['maxlength' => true, 'rows' => 3]) ?>
