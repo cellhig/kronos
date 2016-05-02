@@ -67,22 +67,22 @@ class EmpleadoController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $persona->load(Yii::$app->request->post())) {
 
-            $persona->nombre = $persona->nombre;
-            $persona->apellido = $persona->apellido;
-            $persona->identificacion = $persona->identificacion;
-            $persona->tipo_identificacion_id = $persona->tipo_identificacion_id;
-            $persona->municipio_id = $persona->municipio_id;
-            $persona->direccion = $persona->direccion;
-            $persona->telefono = $persona->telefono;
+            $persona->nombre;
+            $persona->apellido;
+            $persona->identificacion;
+            $persona->tipo_identificacion_id;
+            $persona->municipio_id;
+            $persona->direccion;
+            $persona->telefono; 
 
             $persona->save();
 
 
-            $model->telefono_movil = $model->telefono_movil;
-            $model->estado = $model->estado;
+            $model->telefono_movil;
+            $model->estado;
             $model->persona_id = $persona->id;
-            $model->cargo_id = $model->cargo_id;
-            $model->sede_id= $model->sede_id;
+            $model->cargo_id;
+            $model->sede_id;
             $model->save();
 
 
