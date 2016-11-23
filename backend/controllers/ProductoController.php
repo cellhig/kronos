@@ -96,9 +96,12 @@ class ProductoController extends Controller
             if ($isValid) {
                 $nombreImagen =$model->codigo_producto;//nombre que le voy a dar a la imagen
                 $model->file = UploadedFile::getInstance($model, 'file');// creo una instancia de la imagen
-                $model->file->saveAs('imgProductos/'.$nombreImagen.'.'.$model->file->extension);//guardo la imagen con el nombre y la ruta en la app
-                $model->imagen = 'imgProductos/'.$nombreImagen.'.'.$model->file->extension;//guardo la ruta de la imagen en la BD
-                $model->save(false);
+                if (UploadedFile::getInstance($model, 'file') != null) {
+                    $model->file->saveAs('imgProductos/'.$nombreImagen.'.'.$model->file->extension);//guardo la imagen con el nombre y la ruta en la app
+                    $model->imagen = 'imgProductos/'.$nombreImagen.'.'.$model->file->extension;//guardo la ruta de la imagen en la BD
+                    $model->save(false);
+                }
+
                 return $this->redirect(['producto/view', 'id'=>$id]);
             }
 
