@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Venta Asistida Producto', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Venta Asistida de Producto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php
@@ -54,14 +54,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'id',
-            'observaciones',
+            //'id',
+            //'observaciones',
+            [
+                'attribute' => 'venta_asistida_id',
+                'value' => 'ventaAsistida.fecha_solicitud',
+                'label' => 'Fecha de solicitud',
+            ],
+            [
+                'attribute' => 'producto_id',
+                'value' => 'producto.nombre',
+                'label' => 'Nombre del producto solicitado',
+            ],
             'cantidad_producto',
-            'venta_asistida_id',
-            'producto_id',
 
             ['class' => 'yii\grid\ActionColumn'],
             ],

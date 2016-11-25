@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\VentaAsistidaProducto;
+use backend\models\VentaAsistida;
 use backend\models\VentaAsistidaProductoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -61,12 +62,26 @@ class VentaAsistidaProductoController extends Controller
     public function actionCreate()
     {
         $model = new VentaAsistidaProducto();
+        $ventaAsistida = new VentaAsistida();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $ventaAsistida->load(Yii::$app->request->post())) {
+
+            $ventaAsistida->estado_venta_asistida_id;
+            $ventaAsistida->cliente_id;
+            $ventaAsistida->fecha_solicitud;
+
+            $ventaAsistida->save();
+
+            $model->producto_id;
+            $model->cantidad_producto;
+            $model->venta_asistida_id = $ventaAsistida->id;
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'ventaAsistida' => $ventaAsistida
             ]);
         }
     }
@@ -79,13 +94,30 @@ class VentaAsistidaProductoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = VentaAsistidaProducto::findOne($id);
+        $ventaId = $model->venta_asistida_id;
+        $ventaAsistida = VentaAsistida::findOne($ventaId);
+
+        if (!isset($model, $ventaAsistida)) {
+            throw new NotFoundHttpException("The sale was not found.");
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $isValid = $model->validate();
+            $isValid = $ventaAsistida->validate() && $isValid;
+
+            if ($isValid) {
+                $model->save(false);
+                $ventaAsistida->save(false);
+                return $this->redirect(['venta-asistida-producto/view', 'id'=>$id]);
+            }
+            //return $this->redirect(['view', 'id' => $model->id]);
+
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'ventaAsistida' => $ventaAsistida
             ]);
         }
     }

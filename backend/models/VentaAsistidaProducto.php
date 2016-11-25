@@ -48,7 +48,7 @@ class VentaAsistidaProducto extends \yii\db\ActiveRecord
             'observaciones' => 'Observaciones',
             'cantidad_producto' => 'Cantidad Producto',
             'venta_asistida_id' => 'Venta Asistida ID',
-            'producto_id' => 'Producto ID',
+            'producto_id' => 'Producto',
         ];
     }
 

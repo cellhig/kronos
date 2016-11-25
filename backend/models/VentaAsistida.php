@@ -46,8 +46,8 @@ class VentaAsistida extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'fecha_solicitud' => 'Fecha Solicitud',
-            'estado_venta_asistida_id' => 'Estado Venta Asistida ID',
-            'cliente_id' => 'Cliente ID',
+            'estado_venta_asistida_id' => 'Estado Venta Asistida',
+            'cliente_id' => 'Cliente: Email - Nombre',
         ];
     }
 
