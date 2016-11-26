@@ -25,19 +25,21 @@ $this->params['breadcrumbs'][] = $this->title;
   <?php
       if (!Yii::$app->user->isGuest && $es_Superadmin): ?>
     
-    <div class="row" >
+    <strong><div class="row" style="color: #FF8C00" >
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">
           <i class="fa fa-user fa-3x"></i>
+          
           <?php
-          if (!Yii::$app->user->isGuest && $es_Superadmin) {
+            if (!Yii::$app->user->isGuest && $es_Superadmin) {
             echo Html::a(' Usuarios', ['user/index'], ['class' => '']);
           }
           ?>
-        </div> 
+          
+        </div>
       </div> 
 
-      <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+        <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">
           <i class="fa fa-tags fa-3x"></i>
           <?php
@@ -70,16 +72,6 @@ $this->params['breadcrumbs'][] = $this->title;
         </div> 
       </div> 
 
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-        <div class="div-square">
-         <i class="fa fa-toggle-on fa-3x"></i>
-         <?php
-         if (!Yii::$app->user->isGuest && $es_Superadmin) {
-          echo Html::a('Est. Producto', ['estado/index'], ['class' => '']);
-        }
-        ?>
-      </div> 
-    </div> 
 
           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">
@@ -202,16 +194,6 @@ $this->params['breadcrumbs'][] = $this->title;
       </div> 
 
 
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-        <div class="div-square">
-          <i class="fa fa-bullhorn fa-3x"></i>
-          <?php
-          if (!Yii::$app->user->isGuest && $es_admin) {
-            echo Html::a('Web', ['web/index'], ['class' => '']);
-          }
-          ?>
-        </div> 
-      </div> 
 
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">
@@ -265,7 +247,7 @@ $this->params['breadcrumbs'][] = $this->title;
       </div> 
       <?php endIf ; ?>
 
-  </div> 
+  </div> </strong>
   </div>
   </div>
 
