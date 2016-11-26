@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'rolNombre',
             'estadoNombre',
-            'tipoUsuarioNombre',
+            //'tipoUsuarioNombre',
             //'created_at',
             //'updated_at',
             //'id',

@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'items' => [
             // equivalente a lo de arriba
             [
-                'label' => 'Busacar',
+                'label' => 'Buscar',
                 'content' => $this->render('_search', ['model' => $searchModel]) ,
                 // open its content by default
                 //'contentOptions' => ['class' => 'in']
