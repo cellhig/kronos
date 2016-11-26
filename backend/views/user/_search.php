@@ -20,17 +20,16 @@ use common\models\User;
  
     <?= $form->field($model, 'username') ?>
  
-  <?php echo $form->field($model, 'email') ?>
+   <?= $form->field($model, 'email') ?>
     
-<?= $form->field($model, 'rol_id')->dropDownList(User::getRolLista(), [ 'prompt' => 'Por Favor Elija Uno' ]);?>
-    
-<?= $form->field($model, 'tipo_usuario_id')->dropDownList(User::getTipoUsuarioLista(), [ 'prompt' => 'Por Favor Elija Uno' ]);?>
- 
-<?= $form->field($model, 'estado_id')->dropDownList($model->estadoLista, [ 'prompt' => 'Por Favor Elija Uno' ]);?>
+    <?= $form->field($model, 'rol_id')->dropDownList(User::getRolLista(), [ 'prompt' => 'Por Favor Elija Uno' ]);?>
+
+
+    <?= $form->field($model, 'estado_id')->dropDownList($model->estadoLista, [ 'prompt' => 'Por Favor Elija Uno' ]);?>
  
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Buscar', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Limpiar', ['class' => 'btn btn-default']) ?>
     </div>
  
     <?php ActiveForm::end(); ?>

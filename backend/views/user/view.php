@@ -37,9 +37,9 @@ $this->params['breadcrumbs'][] = $this->title;
    <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            ['attribute'=>'profileLink', 'format'=>'raw'],
+            //['attribute'=>'profileLink', 'format'=>'raw'],
             
-            //'username',
+            'username',
             //'auth_key',
             //'password_hash',
             //'password_reset_token',
@@ -47,9 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'rolNombre',
             'estadoNombre',
             'tipoUsuarioNombre',
-            'created_at',
-            'updated_at',
-            'id',
+            //'created_at',
+            //'updated_at',
+            //'id',
         ],
     ]) ?>
  

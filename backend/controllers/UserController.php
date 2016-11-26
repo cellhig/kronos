@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\models\PermisosHelpers;
+use frontend\models\SignupForm;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -89,7 +90,19 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+        /*$model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -97,7 +110,7 @@ class UserController extends Controller
             return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+        }*/
     }
 
     /**
