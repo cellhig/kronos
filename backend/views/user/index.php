@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\search\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
  
-$this->title = 'Users';
+$this->title = 'Usuarios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'items' => [
             // equivalente a lo de arriba
             [
-                'label' => 'Search',
+                'label' => 'Busacar',
                 'content' => $this->render('_search', ['model' => $searchModel]) ,
                 // open its content by default
                 //'contentOptions' => ['class' => 'in']
@@ -33,6 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ] 
         ]);
     ?>
+
+    <p>
+        <?= Html::a('Registar  Usuario', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
     <?php
         $gridColumns = [
@@ -67,20 +71,25 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>  
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'], 
             //'id',
-            ['attribute'=>'userIdLink', 'format'=>'raw'],
-            ['attribute'=>'userLink', 'format'=>'raw'],
-            ['attribute'=>'perfilLink', 'format'=>'raw'],
-           
-            'email:email',
+            //['attribute'=>'userIdLink', 'format'=>'raw'],
+            //['attribute'=>'userLink', 'format'=>'raw'],
+            //['attribute'=>'perfilLink', 'format'=>'raw'],
+            //'username',
+            'email',
             'rolNombre',
-            'tipoUsuarioNombre',
+            //'tipoUsuarioNombre',
             'estadoNombre',
-            'created_at',
-          
+            //'created_at',
+            [
+                'attribute' => 'created_at',
+                'value' => 'created_at',
+                'label' => 'Fecha de registro',
+            ],
+
             ['class' => 'yii\grid\ActionColumn'],  
             ],
         ]); ?>
