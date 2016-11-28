@@ -49,7 +49,7 @@ class Cliente extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'correo_electronico' => 'Correo Electronico',
+            'correo_electronico' => 'Correo Electronico de Contacto',
             'estado' => 'Estado',
             'persona_id' => 'Persona ID',
         ];

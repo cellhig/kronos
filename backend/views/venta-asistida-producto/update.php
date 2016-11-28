@@ -4,11 +4,12 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\VentaAsistidaProducto */
+/* @var $ventaAsistida backend\models\VentaAsistida */
 
-$this->title = 'Update Venta Asistida Producto: ' . ' ' . $model->id;
+$this->title = 'Actualizar Venta Asistida Producto: ' . ' ' . $ventaAsistida->id;
 $this->params['breadcrumbs'][] = ['label' => 'Venta Asistida Productos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = ['label' => $ventaAsistida->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="venta-asistida-producto-update">
 

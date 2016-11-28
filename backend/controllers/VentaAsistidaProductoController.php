@@ -49,8 +49,13 @@ class VentaAsistidaProductoController extends Controller
      */
     public function actionView($id)
     {
+        $model = VentaAsistidaProducto::findOne($id);
+        $ventaId = $model->venta_asistida_id;
+        $ventaAsistida = VentaAsistida::findOne($ventaId);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'ventaAsistida' => $ventaAsistida
         ]);
     }
 
@@ -108,8 +113,8 @@ class VentaAsistidaProductoController extends Controller
             $isValid = $ventaAsistida->validate() && $isValid;
 
             if ($isValid) {
-                $model->save(false);
-                $ventaAsistida->save(false);
+                $model->save();
+                $ventaAsistida->save();
                 return $this->redirect(['venta-asistida-producto/view', 'id'=>$id]);
             }
             //return $this->redirect(['view', 'id' => $model->id]);

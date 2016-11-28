@@ -5,8 +5,9 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\VentaAsistidaProducto */
+/* @var $ventaAsistida backend\models\VentaAsistida */
 
-$this->title = $model->id;
+$this->title = 'solicitud #'.$ventaAsistida->id;
 $this->params['breadcrumbs'][] = ['label' => 'Venta Asistida Productos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,12 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'observaciones',
-            'cantidad_producto',
+            //'id',
+            'ventaAsistida.id',
             'ventaAsistida.fecha_solicitud',
+            'observaciones',
             'producto.nombre',
             'producto.descripcion',
+            'cantidad_producto',
+            'ventaAsistida.cliente.correo_electronico',
+            'ventaAsistida.cliente.persona.nombre',
+            'ventaAsistida.cliente.persona.telefono',
+            'ventaAsistida.estadoVentaAsistida.nombre_estado_venta_asistida',
         ],
     ]) ?>
 

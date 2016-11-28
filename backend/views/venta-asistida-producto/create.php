@@ -5,6 +5,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\VentaAsistidaProducto */
+/* @var $model backend\models\VentaAsistida */
 
 $this->title = 'Create Venta Asistida Producto';
 $this->params['breadcrumbs'][] = ['label' => 'Venta Asistida Productos', 'url' => ['index']];

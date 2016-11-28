@@ -41,7 +41,7 @@ class EstadoVentaAsistida extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nombre_estado_venta_asistida' => 'Nombre Estado Venta Asistida',
+            'nombre_estado_venta_asistida' => 'Estado',
         ];
     }
 

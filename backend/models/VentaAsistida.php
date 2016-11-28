@@ -44,7 +44,7 @@ class VentaAsistida extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'ID de solictud',
             'fecha_solicitud' => 'Fecha Solicitud',
             'estado_venta_asistida_id' => 'Estado Venta Asistida',
             'cliente_id' => 'Cliente: Email - Nombre',

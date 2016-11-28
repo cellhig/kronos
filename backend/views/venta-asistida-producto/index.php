@@ -36,16 +36,63 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
-        'columns' => $gridColumns,
+        //'columns' => $gridColumns,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+                //'id',
+                //'observaciones',
+                [
+                    'attribute' => 'venta_asistida_id',
+                    'value' => 'ventaAsistida.id',
+                    'label' => '# de solicitud',
+                ],
+                [
+                    'attribute' => 'venta_asistida_id',
+                    'value' => 'ventaAsistida.fecha_solicitud',
+                    'label' => 'Fecha de solicitud',
+                ],
+                [
+                    'attribute' => 'producto_id',
+                    'value' => 'producto.nombre',
+                    'label' => 'Nombre del producto solicitado',
+                ],
+                [
+                    'attribute' => 'cantidad_producto',
+                    'value' => 'cantidad_producto',
+                    'label' => 'unidades solicitadas',
+                ],
+                [
+                    'attribute' => 'venta_asistida_id',
+                    'value' => 'ventaAsistida.cliente.persona.nombre',
+                    'label' => 'Nombre del cliente',
+                ],
+                [
+                    'attribute' => 'venta_asistida_id',
+                    'value' => 'ventaAsistida.cliente.persona.telefono',
+                    'label' => 'teléfono de contacto',
+                ],
+                [
+                    'attribute' => 'venta_asistida_id',
+                    'value' => 'ventaAsistida.cliente.correo_electronico',
+                    'label' => 'correo electrónico de contacto',
+                ],
+                [
+                    'attribute' => 'venta_asistida_id',
+                    'value' => 'ventaAsistida.estadoVentaAsistida.nombre_estado_venta_asistida',
+                    'label' => 'estado de la solicitud',
+                ],
+
+                //'cantidad_producto',
+                ],
         'fontAwesome' => true,
-        'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
+        'selectedColumns'=> [1, 2, 3, 4, 5, 6, 7],  // Col seq 2 to 6
         'columnSelectorOptions'=>[
-            'label' => 'Columns'],
-        'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+            'label' => 'Columnas'],
+        'hiddenColumns'=>[/*0, 4, 9*/], // SerialColumn, Color, & ActionColumn
         'disabledColumns'=>[0,0], // ID & Name
-        'noExportColumns'=>[6], // Status
+        'noExportColumns'=>[/*6*/], // Status
         'dropdownOptions' => [
-            'label' => 'Export All',
+            'label' => 'Exportar A',
             'class' => 'btn btn-default'
             ],
         ]);
