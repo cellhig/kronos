@@ -54,14 +54,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?> 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'id',
+            //'id',
             'nombre_sede',
             'direccion',
             'telefono',
-            'municipio_id',
+            //'municipio_id',
+            [
+                'attribute' => 'municipio_id',
+                'value' => 'municipio.nombre_municipio',
+                'label' => 'Municipio',
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
