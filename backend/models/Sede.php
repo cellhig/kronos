@@ -52,7 +52,7 @@ class Sede extends \yii\db\ActiveRecord
             'nombre_sede' => 'Nombre Sede',
             'direccion' => 'Direccion',
             'telefono' => 'Telefono',
-            'municipio_id' => 'Municipio ID',
+            'municipio_id' => 'Municipio',
         ];
     }
 

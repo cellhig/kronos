@@ -10,6 +10,7 @@ use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\ControlExistenciaProducto */
+/* @var $ctrlExist backend\models\ControlExistencia */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -31,12 +32,12 @@ use yii\helpers\ArrayHelper;
 
     <!-- uso del widget de kartik-v (datepicker) para failitar la seleccion de fecha-->    
     <?= $form->field($ctrlExist, 'fecha')->widget(DatePicker::classname(), [
-		    //'options' => ['placeholder' => ''],
-		    'pluginOptions' => [
-		        'autoclose'=>true,
-		        'format' => 'yyyy-mm-dd'
-		    ]
-		]); ?>
+        //'options' => ['placeholder' => ''],
+        'pluginOptions' => [
+            'autoclose'=>true,
+            'format' => 'yyyy-mm-dd'
+        ]
+    ]); ?>
 
     <?= $form->field($ctrlExist, 'observaciones')->textarea(['rows' => 3,]) ?>
 
@@ -49,7 +50,7 @@ use yii\helpers\ArrayHelper;
 
         <!-- uso del widget de kartik-v (select2) para failitar la busqueda de la sede-->
     <?= $form->field($model, 'producto_id')->widget(Select2::classname(), [
-            'data' =>  ArrayHelper::map(Producto::find()->all(),'id','nombre'),
+            'data' =>  ArrayHelper::map(Producto::find()->all(),'id','nombre', 'categoriaProducto.nombre_categoria'),
             'language' => 'es',
             'options' => ['placeholder' => 'Seleccione uno'],
             'pluginOptions' => [
@@ -57,7 +58,7 @@ use yii\helpers\ArrayHelper;
             ],
         ]); ?>
 
-    <?= $form->field($model, 'cantidad')->textInput() ?>    
+    <?= $form->field($model, 'cantidad')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Registrar' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

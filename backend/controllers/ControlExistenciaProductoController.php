@@ -66,18 +66,17 @@ class ControlExistenciaProductoController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $ctrlExist->load(Yii::$app->request->post())) {
 
-            $ctrlExist->fecha = $ctrlExist->fecha;
-            $ctrlExist->observaciones = $ctrlExist->observaciones;
-            $ctrlExist->sede_id = $ctrlExist->sede_id;
+            $ctrlExist->fecha;
+            $ctrlExist->observaciones;
+            $ctrlExist->sede_id;
 
             $ctrlExist->save();
 
-            $model->cantidad = $model->cantidad;
+            $model->cantidad;
             $model->control_existencia_id = $ctrlExist->id;
-            $model->producto_id = $model->producto_id;
+            $model->producto_id;
 
             $model->save();
-
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -106,7 +105,6 @@ class ControlExistenciaProductoController extends Controller
             if ($isValid) {
                 $model->save(false);
                 $ctrlExist->save(false);
-
                 $this->redirect(['control-existencia-producto/view', 'id' => $id]);
             }
             //return $this->redirect(['view', 'id' => $model->id]);

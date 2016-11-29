@@ -35,14 +35,46 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php
         echo ExportMenu::widget([
         'dataProvider' => $dataProvider,
-        'columns' => $gridColumns,
+        //'columns' => $gridColumns,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            //'id',
+            //'control_existencia_id',
+            [
+                'attribute' => 'control_existencia_id.',
+                'value' => 'controlExistencia.id',
+                'label' => 'Id del control',
+            ],
+            [
+                'attribute' => 'control_existencia_id',
+                'value' => 'controlExistencia.fecha',
+                'label' => 'Fecha',
+            ],
+            [
+                'attribute' => 'control_existencia_id',
+                'value' => 'controlExistencia.sede.nombre_sede',
+                'label' => 'Sede',
+            ],
+            [
+                'attribute' => 'control_existencia_id',
+                'value' => 'controlExistencia.observaciones',
+                'label' => 'Observaciones',
+            ],
+            [
+                'attribute' => 'producto_id',
+                'value' => 'producto.nombre',
+                'label' => 'Producto',
+            ],
+            'cantidad',
+        ],
         'fontAwesome' => true,
-        'selectedColumns'=> [1, 2, 3, 4, 5],  // Col seq 2 to 6
+        'selectedColumns'=> [1, 2, 3, 4, 5,6],  // Col seq 2 to 6
         'columnSelectorOptions'=>[
             'label' => 'Columnas'],
-        'hiddenColumns'=>[0, 4, 9], // SerialColumn, Color, & ActionColumn
+        'hiddenColumns'=>[/*0, 4, 9*/], // SerialColumn, Color, & ActionColumn
         'disabledColumns'=>[0,0], // ID & Name
-        'noExportColumns'=>[6], // Status
+        'noExportColumns'=>[/*6*/], // Status
         'dropdownOptions' => [
             'label' => 'Exportar A...',
             'class' => 'btn btn-default'
